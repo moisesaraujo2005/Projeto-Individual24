@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="main-login">
+        <div class="login-esquerda">
+            <h1>Faça login <br> E venha tocar com a gente!</h1>
+           
+            <img src="playing-music-animate (2).svg" alt="" class="img-esquerda">
+        </div>
+        <div class="login-direita">
+            <div class="card-login">
+                <h1>LOGIN</h1>
+                <div class="texto-card">
+                    <label for="usuario">Usuário</label>
+                    <input type="text" id="login_usuario" placeholder="Usuário">
+                    
+                </div>
+                <div class="texto-card">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha_usuario" placeholder="Senha">
+                </div>
+                
+                <button class="botao-login" onclick="botaoLogin()">Login</button>
+                <span class="styleSpan" >
+                    <a href="cadastro.html">Não tem uma conta? clique aqui</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    function botaoLogin() {
+
+
+        var Usuario = login_usuario.value 
+        var Senha = senha_usuario.value 
+
+        if(Usuario=='moises' && Senha=='1234') {
+            alert(`Login com sucesso!`)
+            window.location = "maa.html"
+        }
+        else {
+            alert(`Login errado`)
+        }
+    }
+</script>

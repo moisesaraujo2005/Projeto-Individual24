@@ -1,0 +1,107 @@
+body {
+    background-color: #607274;
+    margin: 0;
+    padding: 0;
+}
+
+
+.titulo  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    color: white;
+    margin: 1vh;
+
+
+}
+
+
+.imagem_violao img{
+    width: 225px;
+    height: 81px;
+    margin-left: 5vh;
+    margin-top: 1vh;
+}
+
+.titulo2{
+    margin:1vh;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 40px;
+    justify-content: center;
+}
+
+.container {
+    height: 70vh;
+    width: 90vw;
+    border: 2px solid black;
+    justify-content: center;
+    display: flex;
+    background-color: #B2A59B;
+    margin-left:10vh;
+}
+
+.conteudo {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10vh;
+    
+   
+}
+
+.img img {
+    width: 300px;
+    height: 300px;
+    
+}
+
+.img{
+    border: 2px solid black;
+    background-color: #DED0B6;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 20px;
+    overflow: auto;    /* Adiciona scrollbar se necessário */
+    width: 300px;
+    height: 450px;
+
+}
+
+.img:hover{
+    background-color: #B2A59B;
+    transition: 1s;
+
+}
+
+
+#div_mensagem{
+    margin: 30px;
+    font-size: 20px;
+}
+#div_mensagem2{
+    margin: 30px;
+    font-size: 20px;
+}
+#div_mensagem3{
+    margin: 30px;
+    font-size: 20px;
+}
+#div_mensagem4{
+    margin: 30px;
+    font-size: 20px;
+}
+
+
+.img button{
+    background-color: #607274;
+    color: white;
+    cursor: pointer;
+    width: 100px;
+    height: 30px;
+    font-size: 18px;
+    text-align: center;
+}

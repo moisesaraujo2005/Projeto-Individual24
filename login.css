@@ -1,0 +1,128 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap')
+;
+body{
+    margin: 0;
+    font-family: 'Noto sans', sans-serif;
+}
+
+.main-login {
+    width: 100vw;
+    height: 100vh;
+    background: #FAEED1;
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+}
+
+.login-esquerda {
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.img-esquerda{
+    width: 35vw;
+}
+
+.login-esquerda h1 {
+    color:#b87333;
+    font-size: 3vw;
+}
+
+.login-direita {
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-login{
+    width : 60% ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px 35px;
+    background:#8b5742;
+    border-radius: 50px;
+    box-shadow: 0px 10px 30px #00000056;
+    opacity: 0.7;
+}
+
+.card-login h1 {
+    color: #ffca9a; ;
+    font-weight: 800;
+    margin: 0;
+}
+
+.texto-card{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 10px 0px;
+}
+
+.texto-card > input {
+    width: 95%;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    background: #e6ae83;
+    color: #000000;
+    font-size: 12pt;
+    box-shadow: 0px 10px 30px #00000056;
+    outline: none;
+}
+
+.texto-card > label {
+    color : #b87333;
+    margin-bottom: 10px;
+}
+
+.texto-card input::placeholder {
+    color : #000000;
+}
+
+.botao-login {
+    width: 100%;
+    padding: 16px 0px ;
+    margin: 25px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: #ffca9a;
+    background:#b87333;
+    cursor: pointer;
+    box-shadow: 0px 2px 40px -12px;
+}
+
+.botao-login:hover {
+    font-size:16px;
+
+}
+.styleSpan {
+    font-size: 17.5px;
+    cursor: pointer;
+  
+}
+.styleSpan a {
+    text-decoration: none; 
+    color: black;
+}
+
+.styleSpan a:hover{ 
+    font-size:19px;
+    color: white;
+    transition: 200ms;
+}
+

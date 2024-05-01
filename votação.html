@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="votação.css">
+</head>
+<body>
+    <div class="imagem_violao">
+        <a href="index.html"><img src="assets/png-transparent-takamine-guitars-acoustic-electric-guitar-cutaway-dreadnought-acoustic-guitar-takamine-guitars-guitar-accessory-string-instrument-cutaway-removebg-preview.png" alt=""></a></div>
+        
+    <h1 class="titulo">Votação</h1>
+   
+    <h3 class="titulo2">Escolha seu instrumento preferido! </h3>
+    <div class="container">
+      
+        <div class="conteudo">
+            
+            <div class="img">
+            <img src="assets/violaoClassico.png" alt="">
+            <h2>Violão Clássico</h2>
+                <button id="botaoClassico" onclick="violaoClassico()">Descrição</button>
+                <div id="div_mensagem"></div>
+            </div>
+            
+            <div class="img">
+                <img src="assets/violaoAço.png" alt="">
+                <h2>Violão de Aço</h2>
+                <button id="botaoClassico2" onclick="violaoAço()">Descrição</button>
+                <div id="div_mensagem2"></div>
+                </div>
+
+                <div class="img">
+                    <img src="assets/violao7Cordas.png" alt="">
+                    <h2>Violão de 7 Cordas</h2>
+                    <button id="botaoClassico3" onclick="violao7Cordas()">Descrição</button>
+                <div id="div_mensagem3"></div>
+                    </div>
+
+                    <div class="img">
+                        <img src="assets/guitarra.png" alt="">
+                        <h2>Guitarra (Stratocaster)</h2>
+                        <button id="botaoClassico4" onclick="guitarra()">Descrição</button>
+                        <div id="div_mensagem4"></div>
+                        </div>
+
+        </div>
+      
+
+    </div>
+
+
+</body>
+</html>
+
+<script>
+
+    var textoAdicionado = false
+    function violaoClassico() {
+
+        if(textoAdicionado==false) {
+            textoAdicionado=true
+            botaoClassico.innerHTML=`Menos`
+        div_mensagem.innerHTML=`
+    O violão clássico de nylon é um instrumento acústico venerado tanto por sua história quanto por sua versatilidade musical. Caracteriza-se pelas cordas de nylon, ao contrário do violão de aço, o que produz um som mais suave e melódico, ideal para a execução de peças clássicas, bossa nova e música folclórica. A construção deste tipo de violão favorece a técnica de dedilhado, permitindo uma ampla gama de nuances dinâmicas e expressivas. Através dos séculos, o violão clássico de nylon tem sido associado a grandes compositores e virtuosos como Andrés Segovia e João Pernambuco, que expandiram suas capacidades e repertório. Sua popularidade continua forte entre estudantes de música e concertistas, sendo um instrumento fundamental no desenvolvimento da técnica guitarrística e na interpretação de obras complexas.`
+    }
+    
+    else {
+        
+        textoAdicionado=false
+        botaoClassico.innerHTML=`Descrição`
+        div_mensagem.innerHTML=``
+    } }
+
+   
+    function violaoAço() {
+
+        if(textoAdicionado==false) {
+            textoAdicionado=true
+            botaoClassico2.innerHTML=`Menos`
+        div_mensagem2.innerHTML=`
+        O violão de aço, distinguido principalmente por suas cordas metálicas, é um instrumento que oferece um som brilhante e ressonante, amplamente favorecido em gêneros como folk, country, blues e rock. Suas cordas de aço produzem um timbre mais forte e com maior volume em comparação ao mais suave e melódico violão de nylon. Isso o torna ideal para apresentações solo ou como parte de uma banda, pois sua sonoridade consegue se destacar mesmo em meio a outros instrumentos.
+
+A construção do violão de aço também difere em termos de estrutura de suporte interna, projetada para suportar a tensão maior das cordas de aço. Frequentemente, estes violões possuem um corpo maior e um braço reforçado, características que contribuem para a robustez do instrumento e a clareza do som.`
+    }
+    
+    else {
+        
+        textoAdicionado=false
+        botaoClassico2.innerHTML=`Descrição`
+        div_mensagem2.innerHTML=``
+    } }
+
+    function violao7Cordas() {
+
+if(textoAdicionado==false) {
+    textoAdicionado=true
+    botaoClassico3.innerHTML=`Menos`
+div_mensagem3.innerHTML=`
+O violão de 7 cordas é uma evolução intrigante do violão tradicional, adicionando uma corda extra que normalmente é afinada em um registro mais baixo. Essa adição expande significativamente o alcance harmônico e melódico do instrumento, permitindo a execução de linhas de baixo e acordes mais complexos simultaneamente.
+
+Originário do Brasil, o violão de 7 cordas é amplamente utilizado no choro e na samba, gêneros nos quais a corda adicional, geralmente afinada em C ou B, oferece uma base rítmica e harmônica mais rica. Essa configuração permite que o músico explore novas texturas sonoras e desenvolva arranjos mais sofisticados e completos, fazendo do violão de 7 cordas um pilar nessas tradições musicais.
+
+`
+}
+
+else {
+
+textoAdicionado=false
+botaoClassico3.innerHTML=`Descrição`
+div_mensagem3.innerHTML=``
+} }
+
+function guitarra() {
+
+if(textoAdicionado==false) {
+    textoAdicionado=true
+    botaoClassico4.innerHTML=`Menos`
+div_mensagem4.innerHTML=`
+O violão de 7 cordas é uma evolução intrigante do violão tradicional, adicionando uma corda extra que normalmente é afinada em um registro mais baixo. Essa adição expande significativamente o alcance harmônico e melódico do instrumento, permitindo a execução de linhas de baixo e acordes mais complexos simultaneamente.
+
+Originário do Brasil, o violão de 7 cordas é amplamente utilizado no choro e na samba, gêneros nos quais a corda adicional, geralmente afinada em C ou B, oferece uma base rítmica e harmônica mais rica. Essa configuração permite que o músico explore novas texturas sonoras e desenvolva arranjos mais sofisticados e completos, fazendo do violão de 7 cordas um pilar nessas tradições musicais.
+
+`
+}
+
+else {
+
+textoAdicionado=false
+botaoClassico4.innerHTML=`Descrição`
+div_mensagem4.innerHTML=``
+} }
+
+</script>
