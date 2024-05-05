@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="cadastro.css">
+</head>
+<body>
+    <div class="main-login">
+        <div class="login-esquerda">
+            <h1>Faça Cadastro <br> E venha tocar com a gente!</h1>
+           
+            <img src="playing-music-animate (2).svg" alt="" class="img-esquerda">
+        </div>
+        <div class="login-direita">
+            <div class="card-login">
+                <h1>CADASTRO</h1>
+                <div class="texto-card">
+                    <label for="usuario">Usuário</label>
+                    <input type="text" id="cadastro_usuario" placeholder="Usuário">
+                    
+                </div>
+                <div class="texto-card">
+                    <label for="email">Email</label>
+                    <input type="text" id="email_usuario" placeholder="Email">
+                    
+                </div>
+                <div class="texto-card">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha_usuario" placeholder="Senha">
+                </div>
+                <div class="texto-card">
+                    <label for="confirmarSenha">Confirmar Senha</label>
+                    <input type="password" id="confirmarSenha_usuario" placeholder="Confirmar Senha">
+                </div>
+                <div class="select">
+                <p>Você é músico?</p>
+                <select  id="select_musico">
+                
+                    <option value="sim">Sim</option>
+                    <option value="nao">Não</option>
+                
+                </select></div>
+                
+                <button class="botao-login" onclick="cadastrar()">Cadastro</button>
+                <span class="styleSpan" >
+                    <a href="login.html">Já tem uma conta? clique aqui</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+   function cadastrar() {
+    aguardar();
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var usuarioVar = cadastro_usuario.value;
+    var emailVar = email_usuario.value;
+    var senhaVar = senha_usuario.value;
+    var confirmacaoSenhaVar = confirmarSenha_usuario.value;
+    var selectMusico = select_musico.value
+    if (
+      usuarioVar == "" ||
+      emailVar == "" ||
+      senhaVar == "" ||
+      confirmacaoSenhaVar == "" ||
+      selectMusico == "" 
+    ) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Mensagem de erro para todos os campos em branco)";
+
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        usuarioServer: usuarioVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar,
+        selectMusicoServer: selectMusico
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          cardErro.style.display = "block";
+
+          mensagem_erro.innerHTML =
+            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+          setTimeout(() => {
+            window.location = "login.html";
+          }, "2000");
+
+          limparFormulario();
+          finalizarAguardar();
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+      });
+
+    return false;
+  }
+
+  function listar() {
+    fetch("/empresas/listar", {
+      method: "GET",
+    })
+      .then(function (resposta) {
+        resposta.json().then((empresas) => {
+          empresas.forEach((empresa) => {
+            listaEmpresas.innerHTML += `<option value='${empresa.id}'>${empresa.cnpj}</option>`;
+          });
+        });
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+  }
+
+  function sumirMensagem() {
+    cardErro.style.display = "none";
+  }
+</script>
+</script>
