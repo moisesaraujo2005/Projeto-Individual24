@@ -1,48 +1,17 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap')
-;
 body{
     margin: 0;
-    font-family: 'Noto sans', sans-serif;
-}
-
-.main-login {
-    width: 100vw;
-    height: 100vh;
+    padding: 0;
     background: #FAEED1;
-    display: flex;
-    justify-content: center ;
-    align-items: center;
 }
 
-.login-esquerda {
-    width: 50vw;
+.container{
+    display: flex;
+    align-items: center;
     height: 100vh;
-    display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
 }
 
-.img-esquerda{
-    width: 35vw;
-}
-
-.login-esquerda h1 {
-    color:#b87333;
-    font-size: 3vw;
-}
-
-.login-direita {
-    width: 50vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.card-login{
-    width : 60% ;
+.conteudo{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -52,15 +21,13 @@ body{
     border-radius: 50px;
     box-shadow: 0px 10px 30px #00000056;
     opacity: 0.7;
+    gap: 3vh;
+    width: 20%;
+  
+    
 }
 
-.card-login h1 {
-    color: #ffca9a; ;
-    font-weight: 800;
-    margin: 0;
-}
-
-.texto-card{
+.input-login{
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -68,8 +35,7 @@ body{
     justify-content: center;
     margin: 10px 0px;
 }
-
-.texto-card > input {
+.input-login > input{
     width: 95%;
     border: none;
     border-radius: 10px;
@@ -81,16 +47,16 @@ body{
     outline: none;
 }
 
-.texto-card > label {
+.input-login > label {
     color : #b87333;
     margin-bottom: 10px;
+    font-size: 19px;
 }
-
-.texto-card input::placeholder {
+.input-login input::placeholder {
     color : #000000;
 }
 
-.botao-login {
+.botaoLogin {
     width: 100%;
     padding: 16px 0px ;
     margin: 25px;
@@ -106,23 +72,7 @@ body{
     box-shadow: 0px 2px 40px -12px;
 }
 
-.botao-login:hover {
+.botaoLogin:hover {
     font-size:16px;
 
 }
-.styleSpan {
-    font-size: 17.5px;
-    cursor: pointer;
-  
-}
-.styleSpan a {
-    text-decoration: none; 
-    color: black;
-}
-
-.styleSpan a:hover{ 
-    font-size:19px;
-    color: white;
-    transition: 200ms;
-}
-

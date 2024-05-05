@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="cadastro.css">
+</head>
+<body>
+    <div class="main-login">
+        <div class="login-esquerda">
+            <h1>Faça Cadastro <br> E venha tocar com a gente!</h1>
+           
+            <img src="playing-music-animate (2).svg" alt="" class="img-esquerda">
+        </div>
+        <div class="login-direita">
+            <div class="card-login">
+                <h1>CADASTRO</h1>
+                <div class="texto-card">
+                    <label for="usuario">Usuário</label>
+                    <input type="text" id="login_usuario" placeholder="Usuário">
+                    
+                </div>
+                <div class="texto-card">
+                    <label for="email">Email</label>
+                    <input type="text" id="email_usuario" placeholder="Email">
+                    
+                </div>
+                <div class="texto-card">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha_usuario" placeholder="Senha">
+                </div>
+                <div class="texto-card">
+                    <label for="confirmarSenha">Confirmar Senha</label>
+                    <input type="password" id="confirmarSenha_usuario" placeholder="Confirmar Senha">
+                </div>
+                <div class="selectMusico">
+                    Você é músico?
+                    <br>
+                    Sim
+                    <input type="radio" id="sim_musico">
+                    Não
+                    <input type="radio" id="nao_musico">
+                </div>
+                
+                <button class="botao-login" onclick="botaoCadastro()">Cadastro</button>
+                <span class="styleSpan" >
+                    <a href="login.html">Já tem uma conta? clique aqui</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    function botaoLogin() {
+
+
+        var Usuario = login_usuario.value 
+        var Senha = senha_usuario.value 
+
+        if(Usuario=='moises' && Senha=='1234') {
+            alert(`Login com sucesso!`)
+            window.location = "maa.html"
+        }
+        else {
+            alert(`Login errado`)
+        }
+    }
+</script>
