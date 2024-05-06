@@ -57,7 +57,8 @@ function autenticar() {
 
         if (resposta.ok) {
             console.log(resposta);
-            
+              alert(`Login com sucesso!`)
+                    window.location = "index.html";
             
             resposta.json().then(json => {
                 console.log(json);
@@ -68,8 +69,7 @@ function autenticar() {
                 sessionStorage.ID_USUARIO = json.id;
 
                 setTimeout(function () {
-                    alert(`Login com sucesso!`)
-                    window.location = "index.html";
+                  
                 }, 1000); // apenas para exibir o loading
 
             });
