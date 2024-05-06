@@ -13,14 +13,84 @@
                 <label for="Usuario">
                     Usúario
                 </label>
-                <input type="text" id="input_ususario" placeholder="Usúario">
+                <input type="text" id="input_usuario" placeholder="Usúario">
             </div>
             <div class="input-login">
                <label for="senha">Senha:</label> 
                 <input type="text" id="input_senha" placeholder="Senha">
             </div>
-            <button onclick="botaoLogin()" class="botaoLogin">Login</button>
+            <button onclick="autenticar()" class="botaoLogin">Login</button>
         </div>
     </div>
 </body>
 </html>
+<script>
+function autenticar() {
+       
+
+    var usuarioVar = input_usuario.value
+    var senhaVar = input_senha.value
+
+    console.log("FORM LOGIN: ", usuarioVar);
+    console.log("FORM SENHA: ", senhaVar);
+
+    // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
+    if (usuarioVar == "" || senhaVar == "") {
+        window.alert("Preencha todos os campos para prosseguir!");
+       5
+        return false;
+    }
+
+  
+
+    fetch("/usuarios/autenticar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            usuarioServer: usuarioVar,
+            senhaServer: senhaVar
+        })
+    }).then(function (resposta) {
+        console.log("ESTOU NO THEN DO entrar()!")
+
+        if (resposta.ok) {
+            console.log(resposta);
+            
+            
+            resposta.json().then(json => {
+                console.log(json);
+                console.log(JSON.stringify(json));
+
+                sessionStorage.EMAIL_USUARIO = json.email;
+                sessionStorage.NOME_USUARIO = json.nome;
+                sessionStorage.ID_USUARIO = json.id;
+
+                setTimeout(function () {
+                    alert(`Login com sucesso!`)
+                    window.location = "index.html";
+                }, 1000); // apenas para exibir o loading
+
+            });
+
+        } else {
+
+            console.log("Houve um erro ao tentar realizar o login!");
+            alert(`Erro`)
+            resposta.text().then(texto => {
+                console.error(texto);
+            
+            });
+        }
+
+    }).catch(function (erro) {
+        console.log(erro);  
+    })
+
+    return false;
+}
+
+
+
+</script>
