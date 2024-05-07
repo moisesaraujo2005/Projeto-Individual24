@@ -15,7 +15,7 @@ var HOST_APP = process.env.APP_HOST;
 
 var app = express();
 
-
+var instrumentoRouter= require("./src/routes/instrumento")
 var usuarioRouter = require("./src/routes/usuarios");
 
 
@@ -28,7 +28,7 @@ app.use(cors());
 
 app.use("/usuarios", usuarioRouter);
 
-
+app.use("/instrumento",instrumentoRouter )
 app.listen(PORTA_APP, function () {
     console.log(`
     ##   ##  ######   #####             ####       ##     ######     ##              ##  ##    ####    ######  

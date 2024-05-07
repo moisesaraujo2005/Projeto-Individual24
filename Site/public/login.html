@@ -17,7 +17,7 @@
             </div>
             <div class="input-login">
                <label for="senha">Senha:</label> 
-                <input type="text" id="input_senha" placeholder="Senha">
+                <input type="password" id="input_senha" placeholder="Senha">
             </div>
             <button onclick="autenticar()" class="botaoLogin">Login</button>
         </div>
@@ -58,7 +58,7 @@ function autenticar() {
         if (resposta.ok) {
             console.log(resposta);
               alert(`Login com sucesso!`)
-                    window.location = "index.html";
+                    window.location = "home.html";
             
             resposta.json().then(json => {
                 console.log(json);
