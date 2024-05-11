@@ -27,6 +27,12 @@ body{
     
 }
 
+.titulo h1 {
+    margin: 0;
+    font-size: 50px;
+    color: #ffca9a;
+}
+
 .input-login{
     width: 100%;
     display: flex;
@@ -35,6 +41,8 @@ body{
     justify-content: center;
     margin: 10px 0px;
 }
+
+
 .input-login > input{
     width: 95%;
     border: none;
@@ -75,4 +83,22 @@ body{
 .botaoLogin:hover {
     font-size:16px;
 
+}
+
+.conteudo p {
+    color: rgb(0, 0, 0);
+    margin: 0;
+    text-decoration: none;
+    font-size: 19px;
+    list-style: none;
+}
+
+.conteudo a{
+    list-style: none;
+    text-decoration: none;
+}
+
+.conteudo p:hover{
+    color: white;
+    transition: 1s;
 }

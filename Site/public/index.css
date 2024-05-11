@@ -1,11 +1,19 @@
-body {
+body{
     margin: 0;
     padding: 0;
-    background-color: #FAEED1;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-
+   
+      background-color: #FAEED1;
 }
 
+.container1{
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    
+    justify-content: center;
+}
 
 .imagem-violao {
     
@@ -72,267 +80,56 @@ body {
     justify-content: space-between;
 }
 
-.container1 {
-    height: 130vh;
-    width: 100vw;
-    background-color: #FAEED1;
- 
-    
-}
 
-.containerLinhaPreta {
+
+.left .right {
+    width: 50%;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    
-}
-.containerdivisãoheader {
-
-    height: 20vh;
-
-
 }
 
-.invisivel {
-    opacity: 0;
-    filter: blur(15px);
-    transition: all 2.8s;
-    transform: translateX(-100%) ;
-}
 
-.show {
-    opacity: 1;
-    transition: all 2.8s;
-    filter: blur(0px);
-    transform: translateX(0%);
-}
 
-.linhaPreta {
-    width: 1000px;  
-    height: 250px;
-}
 
-.duasPessoas {
-    width: 321px;
-    height: 318px;
-    margin-left: 30px;
-   
-}
-
-.container2 {
+.contRight{
     display: flex;
     align-items: center;
-}
-
-.textoDuasPessoas {
-    font-size: 19px;
-    width: 715px;
-    height: 283px;
-    margin-left: 10vh;
-}
-
-.container3 {
-    display: flex;
-    justify-content: center;
-    margin-top: 5px;
-}
-
-.imagemContainer4{ 
-    width: 380px;
-    height: 318px;
-    margin-right: 30px;
-}
-
-.container4{
-    display: flex;
-    margin-top: 15px;
-    justify-content: end;
-    align-items: center;
-}
-
-.textoContainer4 {
-    font-size: 19px;
-    width: 715px;
-    height: 283px;
-    margin-right: 10vh;
-}
-
-
-.containerComoAprender {
-    background-color: #DED0B6;
-    width: 100vw;
-    height: 167vh;
-    
-   
-   
-}
-
-.containerCifraClub {
-    display: flex;
-    justify-content: space-between;
-    text-align: start;
- 
-}
-.Titulo {
-    font-size: 64px;
-    letter-spacing: 10px;
-    display: flex;
-    justify-content: center;
-    
-}
-
-.imagemCifraClub {
-    width: 268px;
-    height: 268px;
-    margin-right: 10vh;
-
-    
-}
-
-.imagemCifraClub:hover {
-    width: 280px;
-    height: 280px;
-    box-shadow: 6px 6px 6px 6px lightblue;
-    transition: 1s;
-}
-
-.textoCifraClub {
-    width: 748px;
-    height: 287px;
-    margin-left: 10vh;
-    
-   
-}
-
-.tituloCifraClub {
-    font-size: 64px;
-    letter-spacing: 10px;
-    margin-left: 10vh;
-  
- 
-}
-
-.tituloCifras{
-    display: flex;
-    justify-content: flex-end ;
-    font-size: 64px;
-    letter-spacing: 10px;
-    margin-right: 38vh;
-
-}
-
-.imagemCifras {
-    width: 268px;
-    height: 268px;
-    margin-left: 10vh;
-}
-
-.imagemCifras:hover{
-    width: 280px;
-    height: 280px; 
-    border-radius: 5px;
-    box-shadow: 6px 6px 6px 6px blue;
-    transition: 1s;
-    
-
-}
-
-.containerCifras{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row-reverse;
-   
-}
-
-.textoCifras {
-    font-size: 19px;
-    width: 748px;
-    height: 287px;
-    margin-right: 10vh;
-}
-
-.divQuiz {
-    background-color: #B2A59B;
-    height: 95vh;
-    display: flex;
-
     flex-direction: column;
-    align-items: center;
-}
-
-.tituloQuiz {
-
-    font-size: 64px;
-    letter-spacing: 10;
-}
-
-.textoQuiz {
-  
-    width: 748px;
-    height: 287px;
+    width: 50%;
+    border: 2px solid black;
+    margin-left: 20vh;
+    height: 38vh;
+    text-align: center;
+    background-color: #DED0B6;;
+    border-radius: 20px;
     font-size: 19px;
+    color: rgb(0, 0, 0);
 }
 
-.botaoQuiz {
-    width: 532px;
-    height: 78px;
-    background-color:  #A5B2B2 ;
-    color: black;
-    letter-spacing: 10px;
-    font-size: 36px;
-    margin-left: 80px;
+
+.contLeft {
+    margin-right: 20vh;
 }
 
-.divFeitoPor {
-    display: flex;
-    height: 122vh;
-    background-color: #607274;
-    flex-direction: column;
-    align-items: center;
+.left img{
+    width: 550px;
+    height: 500px;
 }
 
-.tituloFeitoPor {
-    font-size: 64px;
-    letter-spacing: 10px;
-}
-
-.imagemMoises {
-   border: solid 5px black;
-   height: 484px;
-   width: 484px;
-   margin-left: 90px;
-  
-}
-
-.imagemMoises img {
-    width: 484px;
-    height: 484px;
- 
-}
-
-.textoFeitoPor{
-    margin-bottom: 5px;
-    font-size: 20px;
-    width: 748px;
-    height: 287px;
-}
-
-.imagensFeitoPor {
-    display: flex;
-    justify-content: space-evenly;
-    background-color: #607274;
-    margin-bottom: 2px;
-
-}
-
-.imagensFeitoPor img {
-    width: 132px;
-    height: 132px;
-}
-
-.imagensFeitoPor img:hover {
-    width: 137px;
-    height: 137px;
-    transition: 0.5s;
-    box-shadow: 7px 7px 7px 7px rgb(240, 240, 240);
+.cadastroBotao {
+    width: 50%;
+    padding: 16px 0px;
+    
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: #ffca9a;
+    background: #bb936f;
+    cursor: pointer;
+    box-shadow: 0px 2px 40px -12px;
 }

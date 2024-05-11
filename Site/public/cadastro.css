@@ -121,9 +121,9 @@ body{
 }
 
 .styleSpan a:hover{ 
-    font-size:19px;
+   
     color: white;
-    transition: 200ms;
+    transition: 1s;
 }
 
 .selectMusico {
@@ -137,4 +137,17 @@ body{
     width: 200px;
     flex-direction: row;
     height: 49px;
+}
+
+
+#select_musico{
+    width: 12vh;
+    text-align: center;
+    background: #e6ae83;
+    color: #000000;
+    font-size: 17px;
+}
+
+.select p{
+    color: #ffca9a;
 }

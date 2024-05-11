@@ -45,7 +45,7 @@
 
             <div class="img">
                 <img src="../assets/guitarra.png" onclick="guita()" alt="">
-                <h2>Guitarra (Stratocaster)</h2>
+                <h2>Guitarra</h2>
                 <button id="botaoClassico4" onclick="guitarra()">Descrição</button>
                 <div id="div_mensagem4"></div>
             </div>
@@ -184,6 +184,62 @@ Originário do Brasil, o violão de 7 cordas é amplamente utilizado no choro e 
             },
             body: JSON.stringify({
                 acoServer: acoVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                window.alert("Seu instrumento foi cadastrada com sucesso!");
+                window.location.href = "dash.html"
+
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+
+        });
+    }
+
+    function Setecordas() {
+        var seteCordasVar = 'Sete cordas'
+
+        fetch("/instrumento/seteCordas", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                seteCordasServer: seteCordasVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                window.alert("Seu instrumento foi cadastrada com sucesso!");
+                window.location.href = "dash.html"
+
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+
+        });
+    }
+
+    function guita() {
+        var guitaVar = 'Guitarra'
+
+        fetch("/instrumento/guita", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                guitaServer: guitaVar
             })
         }).then(function (resposta) {
 
