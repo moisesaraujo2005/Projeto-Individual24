@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="login.css">
 </head>
+
 <body>
     <div class="container">
         <div class="conteudo">
@@ -13,88 +15,92 @@
                 <h1>Login</h1>
             </div>
             <div class="input-login">
-                
+
                 <label for="Usuario">
                     Usúario
                 </label>
                 <input type="text" id="input_usuario" placeholder="Usúario">
             </div>
             <div class="input-login">
-               <label for="senha">Senha:</label> 
+                <label for="senha">Senha:</label>
                 <input type="password" id="input_senha" placeholder="Senha">
             </div>
             <button onclick="autenticar()" class="botaoLogin">Login</button>
-           <a href="cadastro.html"> <p>Não tem uma conta? clique aqui</p></a>
+            <a href="cadastro.html">
+                <p>Não tem uma conta? clique aqui</p>
+            </a>
         </div>
     </div>
 </body>
+
 </html>
 <script>
-function autenticar() {
-       
+    function autenticar() {
 
-    var usuarioVar = input_usuario.value
-    var senhaVar = input_senha.value
 
-    console.log("FORM LOGIN: ", usuarioVar);
-    console.log("FORM SENHA: ", senhaVar);
+        var usuarioVar = input_usuario.value;
+        var senhaVar = input_senha.value;
 
-    // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
-    if (usuarioVar == "" || senhaVar == "") {
-        window.alert("Preencha todos os campos para prosseguir!");
-       5
-        return false;
-    }
+        console.log("FORM LOGIN: ", usuarioVar);
+        console.log("FORM SENHA: ", senhaVar);
 
-  
-
-    fetch("/usuarios/autenticar", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            usuarioServer: usuarioVar,
-            senhaServer: senhaVar
-        })
-    }).then(function (resposta) {
-        console.log("ESTOU NO THEN DO entrar()!")
-
-        if (resposta.ok) {
-            console.log(resposta);
-              alert(`Login com sucesso!`)
-                    window.location = "home.html";
-            
-            resposta.json().then(json => {
-                console.log(json);
-                console.log(JSON.stringify(json));
-
-                sessionStorage.EMAIL_USUARIO = json.email;
-                sessionStorage.NOME_USUARIO = json.nome;
-                sessionStorage.ID_USUARIO = json.id;
-
-                setTimeout(function () {
-                  
-                }, 1000); // apenas para exibir o loading
-
-            });
-
-        } else {
-
-            console.log("Houve um erro ao tentar realizar o login!");
-            alert(`Erro`)
-            resposta.text().then(texto => {
-                console.error(texto);
-            
-            });
+        // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
+        if (usuarioVar == "" || senhaVar == "") {
+            window.alert("Preencha todos os campos para prosseguir!");
+            5;
+            return false;
         }
 
-    }).catch(function (erro) {
-        console.log(erro);  
-    })
 
-    return false;
-}
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                usuarioServer: usuarioVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!");
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.usuario;
+                    sessionStorage.ID_USUARIO = json.idUsuario;
+
+                    alert(`Login com sucesso!`);
+
+                    setTimeout(function () {
+                        window.location = "home.html";
+
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+                alert(`Erro`);
+                resposta.text().then(texto => {
+                    console.error(texto);
+
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        });
+
+        return false;
+    }
 
 
 

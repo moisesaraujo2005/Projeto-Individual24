@@ -1,13 +1,13 @@
 var instrumentoModel = require("../models/instrumentoModel");
 
 
-var sessoes = [];
-
 
 function classico(req, res) {
     var instrumento = req.body.classicoServer;
+    var idUsuario = req.body.idUsuario;
+    var idInstrumento = req.body.idInstrumento;
 
-    instrumentoModel.classico(instrumento)
+    instrumentoModel.classico(idUsuario, idInstrumento)
         .then(
             function (resultado) {
                 res.json(resultado);

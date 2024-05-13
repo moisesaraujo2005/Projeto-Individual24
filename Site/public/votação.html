@@ -147,6 +147,7 @@ Originário do Brasil, o violão de 7 cordas é amplamente utilizado no choro e 
     function classico() {
 
         var classicoVar = 'classico'
+        var idUsuario = sessionStorage.ID_USUARIO
 
         fetch("/instrumento/classico", {
             method: "POST",
@@ -154,7 +155,10 @@ Originário do Brasil, o violão de 7 cordas é amplamente utilizado no choro e 
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                classicoServer: classicoVar
+                classicoServer: classicoVar,
+                idUsuario: idUsuario,
+                idInstrumento: 1,
+                
             })
         }).then(function (resposta) {
 
