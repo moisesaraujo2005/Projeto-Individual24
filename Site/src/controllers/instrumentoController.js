@@ -27,8 +27,10 @@ function classico(req, res) {
 
 function aco(req, res) {
     var instrumento = req.body.acoServer;
+    var idUsuario = req.body.idUsuario;
+    var idInstrumento = req.body.idInstrumento;
 
-    instrumentoModel.aco(instrumento)
+    instrumentoModel.aco(idUsuario, idInstrumento)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -48,8 +50,10 @@ function aco(req, res) {
 
 function seteCordas(req, res) {
     var instrumento = req.body.seteCordasServer;
+    var idUsuario = req.body.idUsuario;
+    var idInstrumento = req.body.idInstrumento;
 
-    instrumentoModel.seteCordas(instrumento)
+    instrumentoModel.seteCordas(idUsuario, idInstrumento)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -69,8 +73,9 @@ function seteCordas(req, res) {
 
 function guita(req, res) {
     var instrumento = req.body.guitaServer;
-
-    instrumentoModel.guita(instrumento)
+    var idUsuario = req.body.idUsuario;
+    var idInstrumento = req.body.idInstrumento;
+    instrumentoModel.guita(idUsuario,idInstrumento)
         .then(
             function (resultado) {
                 res.json(resultado);

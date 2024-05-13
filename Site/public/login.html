@@ -36,7 +36,8 @@
 </html>
 <script>
     function autenticar() {
-
+        var NOME_USUARIO = sessionStorage.NOME_USUARIO
+       
 
         var usuarioVar = input_usuario.value;
         var senhaVar = input_senha.value;
@@ -77,6 +78,7 @@
                     sessionStorage.ID_USUARIO = json.idUsuario;
 
                     alert(`Login com sucesso!`);
+                    
 
                     setTimeout(function () {
                         window.location = "home.html";

@@ -64,7 +64,7 @@
 
     var textoAdicionado = false
     function violaoClassico() {
-
+       
         if (textoAdicionado == false) {
             textoAdicionado = true
             botaoClassico.innerHTML = `Menos`
@@ -180,14 +180,16 @@ Originário do Brasil, o violão de 7 cordas é amplamente utilizado no choro e 
     function aco() {
 
         var acoVar = 'aço'
-
+        var idUsuario = sessionStorage.ID_USUARIO
         fetch("/instrumento/aco", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                acoServer: acoVar
+                acoServer: acoVar,
+                idUsuario:idUsuario,
+                idInstrumento : 2
             })
         }).then(function (resposta) {
 
@@ -208,14 +210,16 @@ Originário do Brasil, o violão de 7 cordas é amplamente utilizado no choro e 
 
     function Setecordas() {
         var seteCordasVar = 'Sete cordas'
-
+        var idUsuario = sessionStorage.ID_USUARIO
         fetch("/instrumento/seteCordas", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                seteCordasServer: seteCordasVar
+                seteCordasServer: seteCordasVar,
+                idUsuario:idUsuario,
+                idInstrumento : 3
             })
         }).then(function (resposta) {
 
@@ -236,14 +240,16 @@ Originário do Brasil, o violão de 7 cordas é amplamente utilizado no choro e 
 
     function guita() {
         var guitaVar = 'Guitarra'
-
+        var idUsuario = sessionStorage.ID_USUARIO
         fetch("/instrumento/guita", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                guitaServer: guitaVar
+                guitaServer: guitaVar,
+                idUsuario:idUsuario,
+                idInstrumento : 4
             })
         }).then(function (resposta) {
 
