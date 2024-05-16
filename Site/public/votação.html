@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="votação.css">
 </head>
 
-<body>
+<body onload="votaçãoViolao()">
     <div class="imagem_violao">
         <a href="index.html"><img
                 src="../assets/png-transparent-takamine-guitars-acoustic-electric-guitar-cutaway-dreadnought-acoustic-guitar-takamine-guitars-guitar-accessory-string-instrument-cutaway-removebg-preview.png"
@@ -18,43 +18,81 @@
     <h1 class="titulo">Votação</h1>
 
     <h3 class="titulo2">Escolha seu instrumento preferido! </h3>
+    
     <div class="container">
-
+        
         <div class="conteudo">
 
-            <div class="img">
-                <img id="classico" src="../assets/violaoClassico.png"  onclick="votar('classico')" alt="">
+            <div class="img" id='desaparecerClassico'>
+                <img id="classico" src="../assets/violaoClassico.png" onclick="votar('classico')" alt="">
                 <h2>Violão Clássico</h2>
                 <button id="botaoClassico" onclick="violaoClassico()">Descrição</button>
-                <div id="div_mensagem"></div>
+                <div class="divDescrição" id="div_mensagem"></div>
             </div>
 
-            <div class="img">
+            <div class="img" id="desaparecerAço">
                 <img src="../assets/violaoAço.png" onclick="votar('aço')" alt="">
                 <h2>Violão de Aço</h2>
                 <button id="botaoClassico2" onclick="violaoAço()">Descrição</button>
-                <div id="div_mensagem2"></div>
+                <div class="divDescrição" id="div_mensagem2"></div>
             </div>
 
-            <div class="img">
+            <div class="img" id="desaparecerSeteCordas">
                 <img src="../assets/violao7Cordas.png" onclick="votar('Sete Cordas')" alt="">
                 <h2>Violão de 7 Cordas</h2>
                 <button id="botaoClassico3" onclick="violao7Cordas()">Descrição</button>
-                <div id="div_mensagem3"></div>
+                <div class="divDescrição" id="div_mensagem3"></div>
             </div>
 
-            <div class="img">
-                <img src="../assets/guitarra.png" onclick="votar('elétrico')" alt="">
-                <h2>Guitarra</h2>
-                <button id="botaoClassico4" onclick="guitarra()">Descrição</button>
-                <div id="div_mensagem4"></div>
+            <div class="img" id="desaparecerEletrico">
+                <img src="../assets/violaoEletrico.png" onclick="votar('Eletrico')" alt="">
+                <h2>Violão Elétrico</h2>
+                <button id="botaoClassico4" onclick="eletrico()">Descrição</button>
+                <div class="divDescrição" id="div_mensagem4"></div>
             </div>
 
+
+            <!--Votação guitarras-->
+            <div class="img" id="desaparecerTelecaster">
+                <img id="telecaster" src="../assets/telecaster.png" onclick="votar('telecaster')" alt="">
+                <h2>Guitarra Telecaster</h2>
+                <button id="botaoTelecaster" onclick="guitaTelecaster()">Descrição</button>
+                <div class="divDescrição" id="div_mensagem5"></div>
+            </div>
+
+            <div class="img" id="desaparecerLesPaul">
+                <img src="../assets/lesPaul.png" onclick="votar('Les Paul')" alt="">
+                <h2>Guitarra Les Paul</h2>
+                <button id="botaoLespaul" onclick="guitaLesPaul()">Descrição</button>
+                <div class="divDescrição" id="div_mensagem6"></div>
+            </div>
+
+            <div class="img" id="desaparecerStrato">
+                <img src="../assets/stratocaster.png" onclick="votar('Strato Caster')" alt="">
+                <h2>Guitarra StratoCaster</h2>
+                <button id="botaoStrato" onclick="guitaStrato()">Descrição</button>
+                <div class="divDescrição" id="div_mensagem7"></div>
+            </div>
+
+            <div class="img" id="desaparecerFlying">
+                <img src="../assets/flyV.png" onclick="votar('Flying')" alt="">
+                <h2>Guitarra Fly V</h2>
+                <button id="botaoFlying" onclick="guitaFlying()">Descrição</button>
+                <div class="divDescrição" id="div_mensagem8"></div>
+            </div>
+           
         </div>
-
-
+       
+    </div>
+    <div class="botoes">
+        <button id="teste" class="teste" onclick="votaçãoViolao()">Votação de violões</button>
+<button class="teste" onclick="votaçãoGuitarra()">Votação de guitarras</button>
     </div>
 
+
+</body>
+
+</html>
 
 </body>
 
@@ -121,7 +159,7 @@ Originário do Brasil, o violão de 7 cordas é amplamente utilizado no choro e 
         }
     }
 
-    function guitarra() {
+    function eletrico() {
 
         if (textoAdicionado == false) {
             textoAdicionado = true
@@ -142,189 +180,187 @@ Originário do Brasil, o violão de 7 cordas é amplamente utilizado no choro e 
         }
     }
 
+    function guitaTelecaster() {
 
+        if (textoAdicionado == false) {
+            textoAdicionado = true
+            botaoTelecaster.innerHTML = `Menos`
+            div_mensagem5.innerHTML = `
+    A Telecaster, também conhecida como Tele, é uma das guitarras mais icônicas já produzidas e tem uma história rica e influente no mundo da música. Desenvolvida pela primeira vez pela Fender em 1950, a Telecaster foi a primeira guitarra de corpo sólido comercialmente bem-sucedida da empresa, e sua popularidade e legado só cresceram desde então.
 
-    function votar(instrumento) {
-     
-        var idUsuario = sessionStorage.ID_USUARIO
-        
-        let rota = ''
-
-        if (instrumento === 'classico') {
-           
-            idInstrumento = 1
-           
-        }
-
-        else if (instrumento == 'aço') {
-            
-            idInstrumento = 2
-           
-        }
-
-        else if (instrumento == 'Sete Cordas') {
-           
-            idInstrumento = 3
-           
+A Telecaster foi projetada originalmente para ser uma guitarra versátil e confiável para músicos de todos os estilos. Ela apresenta um design simples e elegante, com um corpo sólido de madeira (geralmente alder ou ash) e um braço de maple aparafusado. Uma característica distintiva da Telecaster é o seu formato de corpo único, com um recorte inferior mais pronunciado e um "corte de barriga" para maior conforto ao tocar.
+`
         }
 
         else {
-          
-          
-            idInstrumento = 4
+
+            textoAdicionado = false
+            botaoTelecaster.innerHTML = `Descrição`
+            div_mensagem5.innerHTML = ``
+        }
+    }
+
+    function guitaLesPaul() {
+
+        if (textoAdicionado == false) {
+            textoAdicionado = true
+            botaoLespaul.innerHTML = `Menos`
+            div_mensagem6.innerHTML = `A Gibson Les Paul é outra guitarra lendária e icônica que desempenhou um papel significativo na história da música moderna. Introduzida pela primeira vez pela Gibson em 1952, a Les Paul foi projetada em colaboração com o guitarrista e inventor Les Paul, que queria criar uma guitarra elétrica que combinasse o timbre e a sustentação de uma guitarra de caixa oca com a durabilidade e feedback reduzido de uma guitarra de corpo sólido.
+
+A Les Paul apresenta um corpo maciço e robusto, geralmente feito de mogno com um tampo de maple. O corpo é conhecido por sua forma distinta, com linhas arredondadas e um recorte duplo que oferece acesso fácil aos trastes mais altos. O braço geralmente é feito de mogno ou maple e é colado ao corpo, o que contribui para o tom e a ressonância da guitarra.
+   
+`
         }
 
-        fetch(`/instrumento/votacao`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    idUsuario: idUsuario,
-                    idInstrumento: idInstrumento,
-                    
-                })
-            }).then(function (resposta) {
-    
-                console.log("resposta: ", resposta);
-    
-                if (resposta.ok) {
-                    window.alert("Seu instrumento foi cadastrada com sucesso!");
-                    window.location.href = "dash.html"
-    
-                } else {
-                    throw ("Houve um erro ao tentar realizar o cadastro!");
-                }
-            }).catch(function (resposta) {
-                console.log(`#ERRO: ${resposta}`);
-    
-            });
+        else {
+
+            textoAdicionado = false
+            botaoLespaul.innerHTML = `Descrição`
+            div_mensagem6.innerHTML = ``
+        }
+    }
+
+    function guitaStrato() {
+
+        if (textoAdicionado == false) {
+            textoAdicionado = true
+            botaoStrato.innerHTML = `Menos`
+            div_mensagem7.innerHTML = `A Fender Stratocaster, comumente conhecida como Strat, é uma das guitarras mais icônicas e influentes já produzidas. Introduzida pela primeira vez pela Fender em 1954, a Stratocaster foi projetada para oferecer aos músicos uma alternativa versátil e inovadora às guitarras elétricas existentes na época.
+
+A Stratocaster apresenta um design distintivo, com um corpo sólido de madeira (geralmente alder ou ash) e um braço de maple parafusado. Seu corpo tem uma forma elegante e aerodinâmica, com linhas curvas suaves e um recorte duplo que oferece acesso fácil aos trastes mais altos. Uma característica marcante da Stratocaster é a sua placa de escudo de três camadas, que abriga os controles de volume e tom, bem como o seletor de pickup de cinco posições.
+
+
+   
+`
+        }
+
+        else {
+
+            textoAdicionado = false
+            botaoStrato.innerHTML = `Descrição`
+            div_mensagem7.innerHTML = ``
+        }
+    }
+
+    function guitaFlying() {
+
+        if (textoAdicionado == false) {
+            textoAdicionado = true
+            botaoFlying.innerHTML = `Menos`
+            div_mensagem8.innerHTML = `A Gibson Flying V, frequentemente referida como "Flying V" ou "Fly V", é uma das guitarras elétricas mais distintas e reconhecíveis já produzidas. Introduzida pela Gibson em 1958, a Flying V foi projetada para romper com os designs convencionais de guitarras da época e oferecer uma estética futurista e um som poderoso.
+
+O design da Flying V é notável por seu corpo em forma de "V", que se assemelha à asa de um avião ou a uma flecha. O corpo é geralmente feito de mogno, embora algumas versões possam apresentar variações em madeira ou acabamento. O braço é colado ao corpo e geralmente é feito de maple, oferecendo estabilidade e ressonância.
+   
+`
+        }
+
+        else {
+
+            textoAdicionado = false
+            botaoFlying.innerHTML = `Descrição`
+            div_mensagem8.innerHTML = ``
+        }
+    }
+
+    function votaçãoViolao() {
+        document.querySelectorAll('.img')
+
+        desaparecerTelecaster.style.display = 'none'
+        desaparecerLesPaul.style.display = 'none'
+        desaparecerStrato.style.display = 'none'
+        desaparecerFlying.style.display = 'none'
+        desaparecerClassico.style.display = 'block'
+        desaparecerAço.style.display = 'block'
+        desaparecerSeteCordas.style.display = 'block'
+        desaparecerEletrico.style.display = 'block'
+    }
+
+    function votaçãoGuitarra() {
+        desaparecerClassico.style.display = 'none'
+        desaparecerAço.style.display = 'none'
+        desaparecerSeteCordas.style.display = 'none'
+        desaparecerEletrico.style.display = 'none'
+        desaparecerTelecaster.style.display = 'block'
+        desaparecerLesPaul.style.display = 'block'
+        desaparecerStrato.style.display = 'block'
+        desaparecerFlying.style.display = 'block'
     }
 
 
-    /*
-        function classico() {
-    
-            var classicoVar = 'classico'
-      
-    
-            fetch("/instrumento/classico", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    classicoServer: classicoVar,
-                    idUsuario: idUsuario,
-                    idInstrumento: 1,
-                    
-                })
-            }).then(function (resposta) {
-    
-                console.log("resposta: ", resposta);
-    
-                if (resposta.ok) {
-                    window.alert("Seu instrumento foi cadastrada com sucesso!");
-                    window.location.href = "dash.html"
-    
-                } else {
-                    throw ("Houve um erro ao tentar realizar o cadastro!");
-                }
-            }).catch(function (resposta) {
-                console.log(`#ERRO: ${resposta}`);
-    
-            });
+
+    function votar(instrumento) {
+
+        var idUsuario = sessionStorage.ID_USUARIO
+
+        let rota = ''
+
+        if (instrumento === 'classico') {
+
+            idInstrumento = 1
+
         }
-    
-        function aco() {
-    
-            var acoVar = 'aço'
-            var idUsuario = sessionStorage.ID_USUARIO
-            fetch("/instrumento/aco", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    acoServer: acoVar,
-                    idUsuario:idUsuario,
-                    idInstrumento : 2
-                })
-            }).then(function (resposta) {
-    
-                console.log("resposta: ", resposta);
-    
-                if (resposta.ok) {
-                    window.alert("Seu instrumento foi cadastrada com sucesso!");
-                    window.location.href = "dash.html"
-    
-                } else {
-                    throw ("Houve um erro ao tentar realizar o cadastro!");
-                }
-            }).catch(function (resposta) {
-                console.log(`#ERRO: ${resposta}`);
-    
-            });
+
+        else if (instrumento == 'aço') {
+
+            idInstrumento = 2
+
         }
-    
-        function Setecordas() {
-            var seteCordasVar = 'Sete cordas'
-            var idUsuario = sessionStorage.ID_USUARIO
-            fetch("/instrumento/seteCordas", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    seteCordasServer: seteCordasVar,
-                    idUsuario:idUsuario,
-                    idInstrumento : 3
-                })
-            }).then(function (resposta) {
-    
-                console.log("resposta: ", resposta);
-    
-                if (resposta.ok) {
-                    window.alert("Seu instrumento foi cadastrada com sucesso!");
-                    window.location.href = "dash.html"
-    
-                } else {
-                    throw ("Houve um erro ao tentar realizar o cadastro!");
-                }
-            }).catch(function (resposta) {
-                console.log(`#ERRO: ${resposta}`);
-    
-            });
+
+        else if (instrumento == 'Sete Cordas') {
+
+            idInstrumento = 3
+
         }
-    
-        function guita() {
-            var guitaVar = 'Guitarra'
-            var idUsuario = sessionStorage.ID_USUARIO
-            fetch("/instrumento/guita", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    guitaServer: guitaVar,
-                    idUsuario:idUsuario,
-                    idInstrumento : 4
-                })
-            }).then(function (resposta) {
-    
-                console.log("resposta: ", resposta);
-    
-                if (resposta.ok) {
-                    window.alert("Seu instrumento foi cadastrada com sucesso!");
-                    window.location.href = "dash.html"
-    
-                } else {
-                    throw ("Houve um erro ao tentar realizar o cadastro!");
-                }
-            }).catch(function (resposta) {
-                console.log(`#ERRO: ${resposta}`);
-    
-            });
+
+        else if (instrumento == 'Eletrico') {
+
+
+            idInstrumento = 4
         }
-    */
+
+        else if (instrumento == 'telecaster') {
+            idInstrumento = 5
+        }
+
+        else if (instrumento == 'Les Paul') {
+            idInstrumento = 6
+        }
+
+        else if (instrumento == 'Strato Caster') {
+            idInstrumento = 7
+        }
+
+        else {
+            idInstrumento = 8
+        }
+
+        fetch(`/instrumento/votacao`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                idUsuario: idUsuario,
+                idInstrumento: idInstrumento,
+
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                window.alert("Seu instrumento foi cadastrada com sucesso!");
+                window.location.href = "dash.html"
+
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+
+        });
+    }
+
+
+
 </script>

@@ -78,19 +78,7 @@ body {
 }
 
 
-#div_mensagem{
-    margin: 30px;
-    font-size: 20px;
-}
-#div_mensagem2{
-    margin: 30px;
-    font-size: 20px;
-}
-#div_mensagem3{
-    margin: 30px;
-    font-size: 20px;
-}
-#div_mensagem4{
+.divDescrição{
     margin: 30px;
     font-size: 20px;
 }
@@ -104,4 +92,20 @@ body {
     height: 30px;
     font-size: 18px;
     text-align: center;
+}
+
+.botoes{
+    display: flex;
+    justify-content: center;
+    gap: 50vh;
+    margin-top: 1vh;
+}
+
+.botoes button{
+    width: 300px;
+    height: 35px;
+    cursor: pointer;
+    background-color: #DED0B6;
+    font-size: 16px;
+font-weight: bold;
 }

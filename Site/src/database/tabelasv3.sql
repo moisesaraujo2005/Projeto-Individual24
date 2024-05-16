@@ -1,5 +1,5 @@
 create database projetoIndividual ;
-
+	
 use projetoIndividual;
 
 create table usuario (
@@ -14,21 +14,31 @@ select*from usuario;
 create table instrumento (
 idInstrumento int primary key auto_increment,
 nome varchar(45));
-insert into instrumento values 
-(1, 'classico'),
-(2, 'aço'),
-(3, 'Sete Cordas'),
-(4, 'Guitarra');
 
-select * from usuario;
+insert into instrumento values 
+(1, 'Classico'),
+(2, 'Aço'),
+(3, 'Sete Cordas'),
+(4, 'Eletrico'),
+(5, 'Telecaster'),
+(6, 'Les Paul'),
+(7, 'StratoCaster'),
+(8, 'Flying V');
 select*from instrumento;
 
-create table instrumento_usuario (
-fkInstrumento int,
-fkUsuario int,
-foreign key (fkInstrumento) references instrumento(idInstrumento),
-foreign key (fkUsuario) references usuario(idUsuario));
 
-insert into instrumento_usuario (fkInstrumento, fkInstrumento) values
-(2,2);
-select*from instrumento_usuario;
+create table instrumento_usuario(
+fkInstrumento int,
+fkUsuario int, 
+
+
+foreign key (fkInstrumento) references instrumento(idInstrumento),
+foreign key  (fkUsuario) references usuario(idUsuario)
+
+);
+
+
+
+select*from instrumento_usuario ;
+
+select count(fkInstrumento) from instrumento_usuario where fkInstrumento = 5;
