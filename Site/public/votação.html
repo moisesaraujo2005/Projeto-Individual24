@@ -23,28 +23,28 @@
         <div class="conteudo">
 
             <div class="img">
-                <img src="../assets/violaoClassico.png" onclick="classico()" alt="">
+                <img id="classico" src="../assets/violaoClassico.png"  onclick="votar('classico')" alt="">
                 <h2>Violão Clássico</h2>
                 <button id="botaoClassico" onclick="violaoClassico()">Descrição</button>
                 <div id="div_mensagem"></div>
             </div>
 
             <div class="img">
-                <img src="../assets/violaoAço.png" onclick="aco()" alt="">
+                <img src="../assets/violaoAço.png" onclick="votar('aço')" alt="">
                 <h2>Violão de Aço</h2>
                 <button id="botaoClassico2" onclick="violaoAço()">Descrição</button>
                 <div id="div_mensagem2"></div>
             </div>
 
             <div class="img">
-                <img src="../assets/violao7Cordas.png" onclick="Setecordas()" alt="">
+                <img src="../assets/violao7Cordas.png" onclick="votar('Sete Cordas')" alt="">
                 <h2>Violão de 7 Cordas</h2>
                 <button id="botaoClassico3" onclick="violao7Cordas()">Descrição</button>
                 <div id="div_mensagem3"></div>
             </div>
 
             <div class="img">
-                <img src="../assets/guitarra.png" onclick="guita()" alt="">
+                <img src="../assets/guitarra.png" onclick="votar('elétrico')" alt="">
                 <h2>Guitarra</h2>
                 <button id="botaoClassico4" onclick="guitarra()">Descrição</button>
                 <div id="div_mensagem4"></div>
@@ -64,7 +64,7 @@
 
     var textoAdicionado = false
     function violaoClassico() {
-       
+
         if (textoAdicionado == false) {
             textoAdicionado = true
             botaoClassico.innerHTML = `Menos`
@@ -144,128 +144,187 @@ Originário do Brasil, o violão de 7 cordas é amplamente utilizado no choro e 
 
 
 
-    function classico() {
-
-        var classicoVar = 'classico'
+    function votar(instrumento) {
+     
         var idUsuario = sessionStorage.ID_USUARIO
+        
+        let rota = ''
 
-        fetch("/instrumento/classico", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                classicoServer: classicoVar,
-                idUsuario: idUsuario,
-                idInstrumento: 1,
-                
-            })
-        }).then(function (resposta) {
+        if (instrumento === 'classico') {
+           
+            idInstrumento = 1
+           
+        }
 
-            console.log("resposta: ", resposta);
+        else if (instrumento == 'aço') {
+            
+            idInstrumento = 2
+           
+        }
 
-            if (resposta.ok) {
-                window.alert("Seu instrumento foi cadastrada com sucesso!");
-                window.location.href = "dash.html"
+        else if (instrumento == 'Sete Cordas') {
+           
+            idInstrumento = 3
+           
+        }
 
-            } else {
-                throw ("Houve um erro ao tentar realizar o cadastro!");
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
+        else {
+          
+          
+            idInstrumento = 4
+        }
 
-        });
+        fetch(`/instrumento/votacao`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    idUsuario: idUsuario,
+                    idInstrumento: idInstrumento,
+                    
+                })
+            }).then(function (resposta) {
+    
+                console.log("resposta: ", resposta);
+    
+                if (resposta.ok) {
+                    window.alert("Seu instrumento foi cadastrada com sucesso!");
+                    window.location.href = "dash.html"
+    
+                } else {
+                    throw ("Houve um erro ao tentar realizar o cadastro!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+    
+            });
     }
 
-    function aco() {
 
-        var acoVar = 'aço'
-        var idUsuario = sessionStorage.ID_USUARIO
-        fetch("/instrumento/aco", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                acoServer: acoVar,
-                idUsuario:idUsuario,
-                idInstrumento : 2
-            })
-        }).then(function (resposta) {
-
-            console.log("resposta: ", resposta);
-
-            if (resposta.ok) {
-                window.alert("Seu instrumento foi cadastrada com sucesso!");
-                window.location.href = "dash.html"
-
-            } else {
-                throw ("Houve um erro ao tentar realizar o cadastro!");
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-
-        });
-    }
-
-    function Setecordas() {
-        var seteCordasVar = 'Sete cordas'
-        var idUsuario = sessionStorage.ID_USUARIO
-        fetch("/instrumento/seteCordas", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                seteCordasServer: seteCordasVar,
-                idUsuario:idUsuario,
-                idInstrumento : 3
-            })
-        }).then(function (resposta) {
-
-            console.log("resposta: ", resposta);
-
-            if (resposta.ok) {
-                window.alert("Seu instrumento foi cadastrada com sucesso!");
-                window.location.href = "dash.html"
-
-            } else {
-                throw ("Houve um erro ao tentar realizar o cadastro!");
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-
-        });
-    }
-
-    function guita() {
-        var guitaVar = 'Guitarra'
-        var idUsuario = sessionStorage.ID_USUARIO
-        fetch("/instrumento/guita", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                guitaServer: guitaVar,
-                idUsuario:idUsuario,
-                idInstrumento : 4
-            })
-        }).then(function (resposta) {
-
-            console.log("resposta: ", resposta);
-
-            if (resposta.ok) {
-                window.alert("Seu instrumento foi cadastrada com sucesso!");
-                window.location.href = "dash.html"
-
-            } else {
-                throw ("Houve um erro ao tentar realizar o cadastro!");
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-
-        });
-    }
-
+    /*
+        function classico() {
+    
+            var classicoVar = 'classico'
+      
+    
+            fetch("/instrumento/classico", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    classicoServer: classicoVar,
+                    idUsuario: idUsuario,
+                    idInstrumento: 1,
+                    
+                })
+            }).then(function (resposta) {
+    
+                console.log("resposta: ", resposta);
+    
+                if (resposta.ok) {
+                    window.alert("Seu instrumento foi cadastrada com sucesso!");
+                    window.location.href = "dash.html"
+    
+                } else {
+                    throw ("Houve um erro ao tentar realizar o cadastro!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+    
+            });
+        }
+    
+        function aco() {
+    
+            var acoVar = 'aço'
+            var idUsuario = sessionStorage.ID_USUARIO
+            fetch("/instrumento/aco", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    acoServer: acoVar,
+                    idUsuario:idUsuario,
+                    idInstrumento : 2
+                })
+            }).then(function (resposta) {
+    
+                console.log("resposta: ", resposta);
+    
+                if (resposta.ok) {
+                    window.alert("Seu instrumento foi cadastrada com sucesso!");
+                    window.location.href = "dash.html"
+    
+                } else {
+                    throw ("Houve um erro ao tentar realizar o cadastro!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+    
+            });
+        }
+    
+        function Setecordas() {
+            var seteCordasVar = 'Sete cordas'
+            var idUsuario = sessionStorage.ID_USUARIO
+            fetch("/instrumento/seteCordas", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    seteCordasServer: seteCordasVar,
+                    idUsuario:idUsuario,
+                    idInstrumento : 3
+                })
+            }).then(function (resposta) {
+    
+                console.log("resposta: ", resposta);
+    
+                if (resposta.ok) {
+                    window.alert("Seu instrumento foi cadastrada com sucesso!");
+                    window.location.href = "dash.html"
+    
+                } else {
+                    throw ("Houve um erro ao tentar realizar o cadastro!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+    
+            });
+        }
+    
+        function guita() {
+            var guitaVar = 'Guitarra'
+            var idUsuario = sessionStorage.ID_USUARIO
+            fetch("/instrumento/guita", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    guitaServer: guitaVar,
+                    idUsuario:idUsuario,
+                    idInstrumento : 4
+                })
+            }).then(function (resposta) {
+    
+                console.log("resposta: ", resposta);
+    
+                if (resposta.ok) {
+                    window.alert("Seu instrumento foi cadastrada com sucesso!");
+                    window.location.href = "dash.html"
+    
+                } else {
+                    throw ("Houve um erro ao tentar realizar o cadastro!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+    
+            });
+        }
+    */
 </script>
