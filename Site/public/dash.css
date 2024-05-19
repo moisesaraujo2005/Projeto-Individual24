@@ -5,7 +5,7 @@ body {
 }
 
 
-.titulo {
+.titulo  {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -17,15 +17,15 @@ body {
 }
 
 
-.imagem_violao img {
+.imagem_violao img{
     width: 225px;
     height: 81px;
     margin-left: 5vh;
     margin-top: 1vh;
 }
 
-.titulo2 {
-    margin: 1vh;
+.titulo2{
+    margin:1vh;
     display: flex;
     align-items: center;
     color: white;
@@ -40,7 +40,7 @@ body {
     justify-content: center;
     display: flex;
     background-color: #B2A59B;
-    margin-left: 10vh;
+    margin-left:10vh;
 }
 
 .conteudo {
@@ -49,44 +49,42 @@ body {
     align-items: center;
     justify-content: center;
     gap: 10vh;
-
-
+    
+   
 }
 
 .img img {
     width: 300px;
     height: 300px;
-
+    
 }
 
-.img {
+.img{
     border: 2px solid black;
     background-color: #DED0B6;
     text-align: center;
     cursor: pointer;
     border-radius: 20px;
-    overflow: auto;
+    overflow: auto;    /* Adiciona scrollbar se necessário */
     width: 300px;
     height: 450px;
-    overflow-x: hidden;
-
 
 }
 
-.img:hover {
+.img:hover{
     background-color: #B2A59B;
     transition: 1s;
 
 }
 
 
-.divDescrição {
+.divDescrição{
     margin: 30px;
     font-size: 20px;
 }
 
 
-.img button {
+.img button{
     background-color: #607274;
     color: white;
     cursor: pointer;
@@ -96,26 +94,23 @@ body {
     text-align: center;
 }
 
-.botoes {
+.botoes{
     display: flex;
     justify-content: center;
     gap: 50vh;
     margin-top: 1vh;
 }
 
-.botoes button {
+.botoes button{
     width: 300px;
     height: 35px;
     cursor: pointer;
     background-color: #DED0B6;
     font-size: 16px;
-    font-weight: bold;
+font-weight: bold;
 }
 
-.divContainerFrase{
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
+.dash {
+    width: 50vw;
+    height: 50vh;
 }
-width: 225px;
-    height: 81px;
