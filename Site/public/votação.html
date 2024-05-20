@@ -334,7 +334,7 @@ O design da Flying V é notável por seu corpo em forma de "V", que se assemelha
         else {
             idInstrumento = 8
         }
-
+      
         fetch(`/instrumento/votacao`, {
             method: "POST",
             headers: {
@@ -343,6 +343,7 @@ O design da Flying V é notável por seu corpo em forma de "V", que se assemelha
             body: JSON.stringify({
                 idUsuario: idUsuario,
                 idInstrumento: idInstrumento,
+             
 
             })
         }).then(function (resposta) {

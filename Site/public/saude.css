@@ -123,12 +123,16 @@ body{
 
 .msg_rotina{
     font-size: 1.3rem;
-    border: 2px solid black; text-align: center;
+    text-align: center;
     overflow: auto;
-    
+    height: 25vh;
    
     
    
+}
+
+.msg_rotina::after {
+    border: 2px solid black;
 }
 .input_rotina{
    

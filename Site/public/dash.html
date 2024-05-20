@@ -9,7 +9,7 @@
     <link rel="icon" href="assets/Amigo-Violao.png">
 </head>
 
-<body>
+<body onload="obterDadosGrafico()">
     <div class="imagem_violao">
         <a href="index.html"><img
                 src="../assets/png-transparent-takamine-guitars-acoustic-electric-guitar-cutaway-dreadnought-acoustic-guitar-takamine-guitars-guitar-accessory-string-instrument-cutaway-removebg-preview.png"
@@ -27,26 +27,34 @@
             <div class="dash">
                 <canvas id="myChart"></canvas>
             </div>
-            <button onclick="obterDadosGrafico()">a</button>
+           
 </body>
 
 </html>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
- 
-  var fkInstrumento= sessionStorage.fkInstrumento
+     var nome = [];
+        var qtd = []
+
     function obterDadosGrafico(fkInstrumento) {
 
-
-
-
-        fetch(`/dash/buscarUltimasMedidas/${fkInstrumento}`, { cache: 'no-store' }).then(function (response) {
+       sessionStorage.fk = 2
+       var x = sessionStorage.fk 
+    
+    
+        fetch(`/dash/buscarUltimasMedidas`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                     resposta.reverse();
                     console.log(resposta)
+
+                    
+                    for(var i =0; i < resposta.length; i++){
+                        nome.push(resposta[i].nome);
+                        qtd.push(resposta[i].qtdEscolhida);
+                    }
 
                     plotarGrafico(resposta);
 
@@ -69,26 +77,19 @@
 
         // Criando estrutura para plotar gráfico - dados
         let dados = {
-            labels: labels,
+            labels: nome,
             datasets: [{
                 label: 'Umidade',
-                data: [''],
+                data: qtd,
                 fill: false,
                 borderColor: 'rgb(75, 192, 192)',
-                tension: 0.1
-            },
-            {
-                label: 'Temperatura',
-                data: [],
-                fill: false,
-                borderColor: 'rgb(199, 52, 52)',
                 tension: 0.1
             }]
         };
 
         console.log('----------------------------------------------')
         console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
-        console.log(resposta)
+       
 
         // Inserindo valores recebidos em estrutura para plotar o gráfico
         
@@ -103,13 +104,13 @@
 
         // Criando estrutura para plotar gráfico - config
         const config = {
-            type: 'line',
+            type: 'bar',
             data: dados,
         };
 
         // Adicionando gráfico criado em div na tela
         let myChart = new Chart(
-            document.getElementById(`myChart${fkInstrumento}`),
+            document.getElementById(`myChart`),
             config
         );
 

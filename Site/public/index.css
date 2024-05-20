@@ -123,12 +123,14 @@ body {
 .container2 {
     display: flex;
     align-items: center;
+    justify-content: center;
+    gap: 15vh;
 }
 
 .textoDuasPessoas {
-    font-size: 19px;
+    font-size: 21px;
     width: 715px;
-    height: 369px;
+   
     margin-left: 10vh;
 }
 
@@ -146,15 +148,15 @@ body {
 
 .container4{
     display: flex;
-    margin-top: 15px;
-    justify-content: end;
+    gap: 15vh;
+    justify-content: center;
     align-items: center;
 }
 
 .textoContainer4 {
-    font-size: 19px;
+    font-size: 21px;
     width: 715px;
-    height: 283px;
+   
     margin-right: 10vh;
 }
 
@@ -172,6 +174,7 @@ body {
     display: flex;
     justify-content: space-between;
     text-align: start;
+    align-items: center;
  
 }
 .Titulo {
@@ -199,9 +202,9 @@ body {
 
 .textoCifraClub {
     width: 748px;
-    height: 287px;
+
     margin-left: 10vh;
-    font-size: 19px;
+    font-size: 21px;
     
    
 }
@@ -243,13 +246,14 @@ body {
     display: flex;
     justify-content: space-between;
     flex-direction: row-reverse;
-   
+   align-items: center;
+
 }
 
 .textoCifras {
-    font-size: 19px;
+    font-size: 21px;
     width: 748px;
-    height: 287px;
+  
     margin-right: 10vh;
 }
 

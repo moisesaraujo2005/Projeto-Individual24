@@ -6,6 +6,7 @@ function votacao(req, res) {
     var instrumento = req.body.classicoServer;
     var idUsuario = req.body.idUsuario;
     var idInstrumento = req.body.idInstrumento;
+    
 
     instrumentoModel.votacao(idUsuario, idInstrumento)
         .then(

@@ -1,12 +1,13 @@
 var dashModel = require("../models/dashModel");
 
 function buscarUltimasMedidas(req, res) {
-    var fkInstrumento = req.params.fkInstrumento
+    console.log('cheguei no controle')
 
-
-    dashModel.buscarUltimasMedidas(fkInstrumento).then(function (resultado) {
+    dashModel.buscarUltimasMedidas().then(function (resultado) {
         if (resultado.length > 0) {
+            console.log(resultado)
             res.status(200).json(resultado);
+
         } else {
             res.status(204).send("Nenhum resultado encontrado!")
         }
