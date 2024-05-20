@@ -2,7 +2,9 @@ body {
     background-color: #607274;
     margin: 0;
     padding: 0;
+    
 }
+
 
 
 .titulo  {
@@ -10,7 +12,7 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 50px;
-    color: white;
+    color: rgb(255, 255, 255);
     margin: 1vh;
 
 
@@ -28,7 +30,7 @@ body {
     margin:1vh;
     display: flex;
     align-items: center;
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 40px;
     justify-content: center;
 }
@@ -40,7 +42,8 @@ body {
     justify-content: center;
     display: flex;
     background-color: #B2A59B;
-    margin-left:10vh;
+    align-items: center;
+    margin-left: 10vh;
 }
 
 .conteudo {
@@ -48,8 +51,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10vh;
-    
+  
    
 }
 
@@ -111,6 +113,37 @@ font-weight: bold;
 }
 
 .dash {
-    width: 50vw;
+    width: 40vw;
     height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+.botoes {
+    display: flex;
+    justify-content: center;
+    gap: 20vh;
+    border: 2px solid black;
+    width: 70vw;
+    margin-left: 30vh;
+    background-color: #B2A59B;
+    align-items: center;
+    height: 8vh;
+    
+}
+
+.botoes button {
+    width: 300px;
+    height: 35px;
+    cursor: pointer;
+    background-color: #DED0B6;
+    color: rgb(0, 0, 0);
+    font-size: 22px;
+    font-weight: bold;
+}
+.dash h1{
+    color: black;
+    
 }

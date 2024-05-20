@@ -9,25 +9,33 @@
     <link rel="icon" href="assets/Amigo-Violao.png">
 </head>
 
-<body onload="obterDadosGrafico()">
+<body onload="obterDadosGrafico(), obterDadosGuitarra()">
     <div class="imagem_violao">
-        <a href="index.html"><img
+        <a href="home.html"><img
                 src="../assets/png-transparent-takamine-guitars-acoustic-electric-guitar-cutaway-dreadnought-acoustic-guitar-takamine-guitars-guitar-accessory-string-instrument-cutaway-removebg-preview.png"
                 alt=""></a>
     </div>
-
-    <h1 class="titulo">DashBoards</h1>
+      <h1 class="titulo">Dashboards</h1>
 
 
 
     <div class="container">
 
         <div class="conteudo">
-
-            <div class="dash">
+         
+            <div id="Grafico1" class="dash">
+                <h1 style="color: white;">Votação de Violões</h1>
                 <canvas id="myChart"></canvas>
             </div>
-           
+           <div id="Grafico2" style='color: rgb(0, 0, 0);'class="dash">
+            <h1 style="color: white;">Votação de Guitarras</h1>
+                <canvas id="myChart2"></canvas>
+           </div> </div> </div>
+           <div class="botoes">
+           <button onclick="Guitarras()">Gráfico de Guitarras</button>
+           <button onclick="Comparação()">Comparação Gráficos</button>
+           <button onclick="Violoes()">Gráfico de violões</button>
+         </div>
 </body>
 
 </html>
@@ -37,10 +45,25 @@
      var nome = [];
         var qtd = []
 
+        function Violoes() {
+            Grafico2.style.display = 'none'
+            Grafico1.style.display='block'
+
+        }
+
+        function Guitarras() {
+            Grafico2.style.display = 'block'
+            Grafico1.style.display='none'
+
+        }
+
+        function Comparação() {
+            Grafico2.style.display = 'block'
+            Grafico1.style.display='block'
+        }
     function obterDadosGrafico(fkInstrumento) {
 
-       sessionStorage.fk = 2
-       var x = sessionStorage.fk 
+     
     
     
         fetch(`/dash/buscarUltimasMedidas`, { cache: 'no-store' }).then(function (response) {
@@ -51,7 +74,7 @@
                     console.log(resposta)
 
                     
-                    for(var i =0; i < resposta.length; i++){
+                    for(var i =4; i < resposta.length; i++){
                         nome.push(resposta[i].nome);
                         qtd.push(resposta[i].qtdEscolhida);
                     }
@@ -79,10 +102,18 @@
         let dados = {
             labels: nome,
             datasets: [{
-                label: 'Umidade',
+                label: 'Votos',
                 data: qtd,
                 fill: false,
                 borderColor: 'rgb(75, 192, 192)',
+                backgroundColor: [
+                                    'rgba(255, 99, 132)',
+                                    'rgba(54, 162, 235)',
+                                    'rgba(255, 206, 86)',
+                                    'rgba(75, 192, 192)',
+                                    'rgba(153, 102, 255)',
+                                    'rgba(255, 159, 64)'
+                                ],
                 tension: 0.1
             }]
         };
@@ -116,5 +147,99 @@
 
         setTimeout(() => atualizarGrafico(myChart), 2000);
     }
+
+    var nomeGuitarra = [];
+        var qtdGuitarra = []
+
+
+    function obterDadosGuitarra(fkInstrumento) {
+
+       sessionStorage.fk = 2
+       var x = sessionStorage.fk 
+    
+    
+        fetch(`/dash/buscarUltimasMedidas`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+                    console.log(resposta)
+
+                    
+                    for(var i =0; i <4; i++){
+                        nomeGuitarra.push(resposta[i].nome);
+                        qtdGuitarra.push(resposta[i].qtdEscolhida);
+                    }
+
+                    plotarGraficoGuitarra(resposta);
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    function plotarGraficoGuitarra(fkInstrumento) {
+
+        console.log('iniciando plotagem do gráfico...');
+
+        // Criando estrutura para plotar gráfico - labels
+        let labels = [];
+
+        // Criando estrutura para plotar gráfico - dados
+        let dados = {
+            labels: ['Flying V', 'StratoCaster', 'Les Paul', 'Telecaster'],
+            datasets: [{
+                label: 'Votos',
+                label2: 'Teste',
+                data: [qtdGuitarra[0], qtdGuitarra[1] , qtdGuitarra[2], qtdGuitarra[3]],
+                fill: false,
+                borderColor: 'rgb(75, 192, 192)',
+                backgroundColor: [
+                                    'rgba(255, 99, 132)',
+                                    'rgba(54, 162, 235)',
+                                    'rgba(255, 206, 86)',
+                                    'rgba(75, 192, 192)',
+                                    'rgba(153, 102, 255)',
+                                    'rgba(255, 159, 64)'
+                                ],
+                tension: 0.1
+            }]
+        };
+
+        console.log('----------------------------------------------')
+        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+       
+
+        // Inserindo valores recebidos em estrutura para plotar o gráfico
+        
+
+        console.log('----------------------------------------------')
+        console.log('O gráfico será plotado com os respectivos valores:')
+        console.log('Labels:')
+        console.log(labels)
+        console.log('Dados:')
+        console.log(dados.datasets)
+        console.log('----------------------------------------------')
+
+        // Criando estrutura para plotar gráfico - config
+        const config = {
+            type: 'bar',
+            data: dados,
+        };
+
+        // Adicionando gráfico criado em div na tela
+        let myChart = new Chart(
+            document.getElementById(`myChart2`),
+            config
+        );
+
+        setTimeout(() => atualizarGrafico(myChart), 2000);
+    }
+
 
 </script>

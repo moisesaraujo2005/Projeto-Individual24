@@ -99,8 +99,14 @@ body {
 .botoes {
     display: flex;
     justify-content: center;
-    gap: 50vh;
-    margin-top: 1vh;
+    gap: 20vh;
+    border: 2px solid black;
+    width: 70vw;
+    margin-left: 30vh;
+    background-color: #B2A59B;
+    align-items: center;
+    height: 8vh;
+    
 }
 
 .botoes button {
@@ -108,14 +114,21 @@ body {
     height: 35px;
     cursor: pointer;
     background-color: #DED0B6;
-    font-size: 16px;
+    color: rgb(0, 0, 0);
+    font-size: 22px;
     font-weight: bold;
 }
+
+.botoes{
+    display: flex;
+    justify-content: center;
+    margin-top:1vh
+    
+}
+
 
 .divContainerFrase{
     justify-content: center;
     display: flex;
     flex-direction: column;
 }
-width: 225px;
-    height: 81px;
