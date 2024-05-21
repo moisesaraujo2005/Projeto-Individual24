@@ -91,7 +91,7 @@ body{
 }
 .paragrafo1 p {
   
-   font-size: 1.3rem;
+   font-size: 2.0rem;
    color: #0A6847;
 }
 .paragrafo1 p{
@@ -108,7 +108,7 @@ body{
 
 .containerFrases p{
     width: 37.25vw;
-    font-size: 1.3rem;
+    font-size: 2.0rem;
     color: #0A6847;
 }
 
@@ -122,7 +122,7 @@ body{
 }
 
 .msg_rotina{
-    font-size: 1.3rem;
+    font-size: 2.0rem;
     text-align: center;
     overflow: auto;
     height: 25vh;
@@ -164,8 +164,11 @@ body{
 
 .rotina h1{
     margin: 0;
+    font-size: 2.6rem;
 }
-
+.rotina h2{
+    font-size: 2.2rem;
+}
 
 .onu{
     display: flex;
@@ -185,6 +188,14 @@ body{
 }
 .onu p{
     width: 37.25vw;
-    font-size: 1.3rem;
+    font-size: 2.0rem;
     color: #0A6847;
+}
+
+.onu h1{
+    font-size: 2.6rem;
+}
+
+.containerFrases h1{
+    font-size: 2.6rem;
 }
