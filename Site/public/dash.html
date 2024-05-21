@@ -24,11 +24,11 @@
         <div class="conteudo">
          
             <div id="Grafico1" class="dash">
-                <h1 style="color: white;">Votação de Violões</h1>
+                <h1 style="color: rgb(0, 0, 0); font-weight: bold;">Votação de Violões</h1>
                 <canvas id="myChart"></canvas>
             </div>
            <div id="Grafico2" style='color: rgb(0, 0, 0);'class="dash">
-            <h1 style="color: white;">Votação de Guitarras</h1>
+            <h1 style="color: rgb(0, 0, 0);">Votação de Guitarras</h1>
                 <canvas id="myChart2"></canvas>
            </div> </div> </div>
            <div class="botoes">
@@ -103,7 +103,7 @@
             labels: nome,
             datasets: [{
                 label: 'Votos',
-                data: qtd,
+                data: [qtd[0], qtd[1], qtd[2] ,qtd[3]], 
                 fill: false,
                 borderColor: 'rgb(75, 192, 192)',
                 backgroundColor: [
