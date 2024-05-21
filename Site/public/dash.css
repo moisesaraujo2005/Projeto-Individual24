@@ -44,6 +44,7 @@ body {
     background-color: white;
     align-items: center;
     margin-left: 10vh;
+    margin-bottom: 4vh;
 }
 
 .conteudo {
@@ -120,6 +121,7 @@ font-weight: bold;
     align-items: center;
     flex-direction: column;
     text-align: center;
+   
 }
 .botoes {
     display: flex;

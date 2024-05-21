@@ -17,7 +17,7 @@ var app = express();
 var dashRouter = require("./src/routes/dash")
 var instrumentoRouter= require("./src/routes/instrumento")
 var usuarioRouter = require("./src/routes/usuarios");
-
+var musicoRouter = require("./src/routes/musico")
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -28,6 +28,7 @@ app.use(cors());
 
 app.use("/usuarios", usuarioRouter);
 app.use("/dash", dashRouter)
+app.use("/musico", musicoRouter)
 app.use("/instrumento",instrumentoRouter )
 app.listen(PORTA_APP, function () {
     console.log(`
