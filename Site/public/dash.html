@@ -9,7 +9,7 @@
     <link rel="icon" href="assets/Amigo-Violao.png">
 </head>
 
-<body onload="obterDadosGrafico(), obterDadosGuitarra(),  obterDadosMusicoNao() , qtdUsuarios()", qtdVotos()>
+<body onload="obterDadosGrafico(), obterDadosGuitarra(),  obterDadosMusicoNao() , qtdUsuarios(), qtdVotos()">
     <div class="imagem_violao">
         <a href="home.html"><img
                 src="../assets/png-transparent-takamine-guitars-acoustic-electric-guitar-cutaway-dreadnought-acoustic-guitar-takamine-guitars-guitar-accessory-string-instrument-cutaway-removebg-preview.png"
@@ -23,7 +23,7 @@
        
         <div class="containerVotos">
             <h2>Quantidade de votos</h2>
-           
+            
                 <div id="div_msg2"></div>
         </div>
         <div class="conteudo">
@@ -412,9 +412,9 @@
                     console.log(respostaVotos)
                   
                    
-                  
+                   
 
-                   div_msg2.innerHTML= `${respostaVotos[0].qtdVotos}`
+                   div_msg2.innerHTML+= `${respostaVotos[0].qtdVotos}`
                    console.log(qtdVotos)
 
                 });
