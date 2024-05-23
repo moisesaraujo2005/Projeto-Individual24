@@ -22,7 +22,14 @@ function cadastrar(usuario, email, senha, musico) {
     return database.executar(instrucaoSql);
 }
 
+function pegarUsuario() {
+    var instrucaoSql = `select count(fkUsuario) as 'qtdUser' from instrumento_usuario;`;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    pegarUsuario
 };
