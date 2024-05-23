@@ -9,7 +9,7 @@
     <link rel="icon" href="assets/Amigo-Violao.png">
 </head>
 
-<body onload="obterDadosGrafico(), obterDadosGuitarra(),  obterDadosMusicoNao() , qtdUsuarios()">
+<body onload="obterDadosGrafico(), obterDadosGuitarra(),  obterDadosMusicoNao() , qtdUsuarios()", qtdVotos()>
     <div class="imagem_violao">
         <a href="home.html"><img
                 src="../assets/png-transparent-takamine-guitars-acoustic-electric-guitar-cutaway-dreadnought-acoustic-guitar-takamine-guitars-guitar-accessory-string-instrument-cutaway-removebg-preview.png"
@@ -20,8 +20,14 @@
 
 
     <div class="container">
-
+       
+        <div class="containerVotos">
+            <h2>Quantidade de votos</h2>
+           
+                <div id="div_msg2"></div>
+        </div>
         <div class="conteudo">
+           
 
             <div id="Grafico1" class="dash">
                 <h1 style="color: rgb(0, 0, 0); font-weight: bold;">Votação de Violões</h1>
@@ -51,7 +57,7 @@
                 
             </div>
             <div class="containerUsuarios">
-                <h1>Quantidade de usúarios</h1>
+                <h2>Quantidade de usúarios</h2>
               
                 <div id="div_msg"></div>
             </div>
@@ -369,7 +375,7 @@
 
         setTimeout(() => atualizarGrafico(myChart4), 2000);
     }
-    var usuarios = []
+
     function qtdUsuarios() {
         fetch(`/usuarios/pegarUsuario`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
@@ -383,6 +389,33 @@
 
                    div_msg.innerHTML= `${respostaUsuario[0].qtdUser}`
                    
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+
+    }
+
+    
+    function qtdVotos() {
+        fetch(`/dash/pegarVotos`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (respostaVotos) {
+                    console.log(`Dados recebidos: ${JSON.stringify(respostaVotos)}`);
+                    respostaVotos.reverse();
+                    console.log(respostaVotos)
+                  
+                   
+                  
+
+                   div_msg2.innerHTML= `${respostaVotos[0].qtdVotos}`
+                   console.log(qtdVotos)
 
                 });
             } else {

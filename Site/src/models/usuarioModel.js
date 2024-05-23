@@ -23,7 +23,7 @@ function cadastrar(usuario, email, senha, musico) {
 }
 
 function pegarUsuario() {
-    var instrucaoSql = `select count(fkUsuario) as 'qtdUser' from instrumento_usuario;`;
+    var instrucaoSql = `select count(idUsuario) as 'qtdUser' from usuario;`;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }

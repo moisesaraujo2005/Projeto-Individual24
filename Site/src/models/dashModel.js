@@ -13,9 +13,17 @@ group by fkInstrumento;`;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
+function pegarVotos() {
+
+    var instrucaoSql = `select count(fkInstrumento) as qtdVotos from instrumento_usuario;`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
 
 
 
 module.exports = {
-    buscarUltimasMedidas
+    buscarUltimasMedidas,
+    pegarVotos
 };
