@@ -21,9 +21,18 @@ function pegarVotos() {
     return database.executar(instrucaoSql);
 }
 
+function horarioVotado() {
+
+    var instrucaoSql = `select hora as horavotada from instrumento_usuario order by hora desc limit 1;`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 
 
 module.exports = {
     buscarUltimasMedidas,
-    pegarVotos
+    pegarVotos,
+    horarioVotado
 };

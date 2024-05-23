@@ -9,7 +9,7 @@
     <link rel="icon" href="assets/Amigo-Violao.png">
 </head>
 
-<body onload="obterDadosGrafico(), obterDadosGuitarra(),  obterDadosMusicoNao() , qtdUsuarios(), qtdVotos()">
+<body onload="obterDadosGrafico(), obterDadosGuitarra(),  obterDadosMusicoNao() , qtdUsuarios(), qtdVotos(), horarioAtual(),   exibirHoraAtual()">
     <div class="imagem_violao">
         <a href="home.html"><img
                 src="../assets/png-transparent-takamine-guitars-acoustic-electric-guitar-cutaway-dreadnought-acoustic-guitar-takamine-guitars-guitar-accessory-string-instrument-cutaway-removebg-preview.png"
@@ -20,11 +20,23 @@
 
 
     <div class="container">
-       
+        <div class="KPI">
         <div class="containerVotos">
             <h2>Quantidade de votos</h2>
             
-                <div id="div_msg2"></div>
+                <div class="divKPI" id="div_msg2"></div>
+
+        
+        </div>
+
+        <div class="horarioVotado">
+            <h2>Última votação</h2>
+            <div class="divKPI"  id="div_msg3"></div> </div>
+
+        <div class="horarioAtual">
+            <h2>Horario Atual</h2>
+            <div class="divKPI"  id="div_msg4"></div>
+        </div>
         </div>
         <div class="conteudo">
            
@@ -59,7 +71,7 @@
             <div class="containerUsuarios">
                 <h2>Quantidade de usúarios</h2>
               
-                <div id="div_msg"></div>
+                <div class="divKPI" id="div_msg"></div>
             </div>
         </div>
     </div>
@@ -127,7 +139,10 @@
         let labels = [];
 
         // Criando estrutura para plotar gráfico - dados
+        Chart.defaults.font.size = 20;
+       
         let dados = {
+            
             labels: nome,
             datasets: [{
                 label: 'Votos',
@@ -135,10 +150,10 @@
                 fill: false,
                 borderColor: 'rgb(75, 192, 192)',
                 backgroundColor: [
-                    'rgba(255, 99, 132)',
-                    'rgba(54, 162, 235)',
-                    'rgba(255, 206, 86)',
-                    'rgba(75, 192, 192)',
+                    '#FFCC70',
+                    '#00FFCA',
+                    '#EB455F',
+                    '#F66B0E',
                     'rgba(153, 102, 255)',
                     'rgba(255, 159, 64)'
                 ],
@@ -228,10 +243,10 @@
                 fill: false,
                 borderColor: 'rgb(75, 192, 192)',
                 backgroundColor: [
-                    'rgba(255, 99, 132)',
-                    'rgba(54, 162, 235)',
-                    'rgba(255, 206, 86)',
-                    'rgba(75, 192, 192)',
+                    '#A25772',
+                    '#FBA834',
+                    '#0D9276',
+                    '#D04848',
                     'rgba(153, 102, 255)',
                     'rgba(255, 159, 64)'
                 ],
@@ -332,7 +347,7 @@
 
         // Criando estrutura para plotar gráfico - dados
         let dados = {
-            labels: ['Musico', 'NãoMusico'],
+            labels: ['Musico', 'Não Musico'],
             datasets: [{
                 label: 'Quantidade',
                 label2: 'Teste',
@@ -428,4 +443,46 @@
 
 
     }
+    
+
+    function horarioAtual() {
+        fetch(`/dash/horarioVotado`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (respostaHorario) {
+                    console.log(`Dados recebidos: ${JSON.stringify(respostaHorario)}`);
+                    respostaHorario.reverse();
+                    console.log(respostaHorario)
+
+                   
+                   
+                   div_msg3.innerHTML = `${respostaHorario[0].horavotada}`
+                  
+
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+
+    }
+   
+    function exibirHoraAtual() {
+      var agora = new Date();
+      var horaAtual = agora.getHours();
+      var minutoAtual = agora.getMinutes().toString().padStart(2, '0');;
+      var segundoAtual = agora.getSeconds().toString().padStart(2, '0');;
+
+        div_msg4.innerHTML= `${horaAtual}:${minutoAtual}:${segundoAtual}`;
+        setInterval(exibirHoraAtual, 1000);
+    
+    }
+
+// Chama a função exibirHoraAtual() inicialmente para exibir a hora atual
+;
+    
 </script>

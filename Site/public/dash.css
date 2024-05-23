@@ -2,7 +2,7 @@ body {
     background-color: #607274;
     margin: 0;
     padding: 0;
-    
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 
@@ -36,7 +36,7 @@ body {
 }
 
 .container {
-    height: 75vh;
+    height: 80vh;
     width: 90vw;
     border: 2px solid black;
     justify-content: center;
@@ -46,14 +46,16 @@ body {
     margin-left: 10vh;
     margin-bottom: 4vh;
     flex-direction: column;
+    background-color: #b5c9cb;
 }
+
 
 .conteudo {
 
     display: flex;
     align-items: center;
     justify-content: center;
-  
+    gap: 5vh;
    
 }
 
@@ -122,6 +124,7 @@ font-weight: bold;
     align-items: center;
     flex-direction: column;
     text-align: center;
+    margin-top: 3vh;
    
 }
 .botoes {
@@ -159,7 +162,9 @@ font-weight: bold;
     right: 25vh;
     display: flex;
     position: absolute;
-    flex-direction: column
+    flex-direction: column;
+    border-radius: 25px;
+    background-color: #DED0B6;
 }
 
 .containerVotos {
@@ -171,24 +176,52 @@ font-weight: bold;
     align-items: center;
     flex-direction: column;
     justify-content: center;
-   
+    border-radius: 25px;
+    background-color: #DED0B6;
 }
 
 #div_msg2 {
     font-size: 2.5rem;
 }
 
-.teste {
+
+
+
+.horarioVotado {
+    border: 2px solid black;
+    width: 10vw;
+    height: 17vh;
+    text-align: center;
     display: flex;
     align-items: center;
     flex-direction: column;
-    border: 2px solid black;
-    width: 3vh;
-    height: 3vh;
-    margin-top: 3vh;
     justify-content: center;
+    border-radius: 25px;
+    background-color: #DED0B6;
+}
 
+
+.horarioAtual {
+    border: 2px solid black;
+    width: 10vw;
+    height: 17vh;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 25px;
+    background-color: #DED0B6;
+   
 }
-#div_msg{
-    font-size: 2.5rem;
-}
+    .KPI{
+        display: flex;
+    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+    gap: 25vh;
+    }
+
+    .divKPI {
+        font-size: 2.5rem;
+    }

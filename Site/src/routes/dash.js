@@ -9,4 +9,8 @@ router.get("/pegarVotos", function (req,res) {
     dashController.pegarVotos(req,res);
 
 })
+router.get("/horarioVotado", function (req,res) {
+    dashController.horarioVotado(req,res);
+
+})
 module.exports = router;
