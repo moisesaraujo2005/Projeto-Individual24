@@ -7,19 +7,25 @@
     <title>DashBoards</title>
     <link rel="stylesheet" href="dash.css">
     <link rel="icon" href="assets/Amigo-Violao.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 
-<body onload="obterDadosGrafico(), obterDadosGuitarra(),  obterDadosMusicoNao() , qtdUsuarios(), qtdVotos(), horarioAtual(),   exibirHoraAtual()">
-    <div class="imagem_violao">
-        <a href="home.html"><img
-                src="../assets/png-transparent-takamine-guitars-acoustic-electric-guitar-cutaway-dreadnought-acoustic-guitar-takamine-guitars-guitar-accessory-string-instrument-cutaway-removebg-preview.png"
-                alt=""></a>
-    </div>
+<body onload="obterDadosGrafico(), obterDadosGuitarra(),  obterDadosMusicoNao() , qtdUsuarios(), qtdVotos(), horarioAtual(),   exibirHoraAtual(), validarSessao()">
+    <div class="headerDash">
+        <div id="navBar" class="navbar">
+        <a href="votação.html">
+                <h1>Votação</h1>
+                </a>
+                <h1 id="b_usuario"></h1>
+               <a href="home.html"><img src="assets/logoutbranco.png" alt=""></a> 
+    </div></div>
     <h1 class="titulo">Dashboards Votação</h1>
 
 
 
-    <div class="container">
+    <div id="graficoSeta" class="container">
         <div class="KPI">
         <div class="containerVotos">
             <h2>Quantidade de votos</h2>
@@ -34,9 +40,12 @@
             <div class="divKPI"  id="div_msg3"></div> </div>
 
         <div class="horarioAtual">
-            <h2>Horario Atual</h2>
+            <h2>Horário Atual</h2>
             <div class="divKPI"  id="div_msg4"></div>
         </div>
+       <a href="#myChart4"> <div class="teste">
+            <img src="https://cdn-icons-png.flaticon.com/512/141/141985.png" alt="">
+        </div> </a>
         </div>
         <div class="conteudo">
            
@@ -51,13 +60,13 @@
             </div>
         </div>
     </div>
-    <br><br>
+   
     <div class="botoes">
         <button onclick="Guitarras()">Gráfico de Guitarras</button>
         <button onclick="Comparação()">Comparação Gráficos</button>
         <button onclick="Violoes()">Gráfico de violões</button>
     </div>
-    <br><br>
+ 
     <h1 class="titulo">Dashboard usúarios</h1>
     <div class="container">
         <div class="conteudo">
@@ -70,8 +79,15 @@
             </div>
             <div class="containerUsuarios">
                 <h2>Quantidade de usúarios</h2>
+
+               
               
                 <div class="divKPI" id="div_msg"></div>
+
+                
+            </div>
+            <div class="setaPraCima">
+                <a href="#navBar"><img src="assets/pra-cima.png" alt=""></a>
             </div>
         </div>
     </div>
@@ -79,7 +95,7 @@
 </body>
 
 </html>
-
+<script src="sessao.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
     var nome = [];

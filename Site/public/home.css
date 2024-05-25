@@ -172,17 +172,27 @@ body {
 
 .containerCifraClub {
     display: flex;
-    justify-content: space-between;
-    text-align: start;
+    justify-content: center;
+    gap: 45vh;
     align-items: center;
+    margin-top: 15vh;
  
+}
+
+.navbar img {
+    width: 40px;
+    height: 37px;
+}
+.imgLogo {
+    width: 40px;
+    height: 37px;
 }
 .Titulo {
     font-size: 64px;
     letter-spacing: 10px;
     display: flex;
     justify-content: center;
-    
+    margin: 0;
 }
 
 .imagemCifraClub {
@@ -194,16 +204,16 @@ body {
 }
 
 .imagemCifraClub:hover {
-    width: 280px;
+    
     height: 280px;
-    box-shadow: 6px 6px 6px 6px lightblue;
-    transition: 1s;
+   
+    transition: 200s;
 }
 
 .textoCifraClub {
     width: 748px;
 
-    margin-left: 10vh;
+    
     font-size: 21px;
     
    
@@ -212,41 +222,43 @@ body {
 .tituloCifraClub {
     font-size: 64px;
     letter-spacing: 10px;
-    margin-left: 18vh;
+   margin: 0;
   
  
 }
 
 .tituloCifras{
-    display: flex;
-    justify-content: flex-end ;
+ 
     font-size: 64px;
     letter-spacing: 10px;
-    margin-right: 38vh;
-
+    
+    margin: 0;
 }
 
 .imagemCifras {
     width: 268px;
     height: 268px;
     margin-left: 10vh;
+    margin-top: 7vh;
 }
 
 .imagemCifras:hover{
-    width: 280px;
+    
     height: 280px; 
     border-radius: 5px;
-    box-shadow: 6px 6px 6px 6px blue;
-    transition: 1s;
+    
+    transition: 200ms;
     
 
 }
 
 .containerCifras{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-direction: row-reverse;
    align-items: center;
+   gap: 45vh;
+   margin-top: 15vh;
 
 }
 
@@ -254,9 +266,13 @@ body {
     font-size: 21px;
     width: 748px;
   
-    margin-right: 10vh;
+    
 }
-
+.concertoTexto{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
 .divQuiz {
     background-color: #B2A59B;
     height: 75vh;

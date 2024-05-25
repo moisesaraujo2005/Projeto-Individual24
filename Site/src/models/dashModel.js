@@ -31,6 +31,7 @@ function horarioVotado() {
 
 
 
+
 module.exports = {
     buscarUltimasMedidas,
     pegarVotos,

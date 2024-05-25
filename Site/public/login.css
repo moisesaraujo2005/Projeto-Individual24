@@ -1,9 +1,16 @@
+
 body{
+    
     margin: 0;
     padding: 0;
     background: #FAEED1;
 }
-
+.roboto-bold {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    
+  }
 .container{
     display: flex;
     align-items: center;
@@ -56,9 +63,9 @@ body{
 }
 
 .input-login > label {
-    color : #b87333;
+    color : #ffffff;
     margin-bottom: 10px;
-    font-size: 19px;
+    font-size: 22px;
 }
 .input-login input::placeholder {
     color : #000000;
@@ -89,7 +96,7 @@ body{
     color: rgb(0, 0, 0);
     margin: 0;
     text-decoration: none;
-    font-size: 19px;
+    font-size: 22px;
     list-style: none;
 }
 
