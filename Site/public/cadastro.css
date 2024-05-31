@@ -167,3 +167,9 @@ body{
     align-items: center;
     flex-direction: column;
 }
+
+#div_msgErro {
+    font-size: 22px;
+    color: red;
+    margin-top: 2vh;
+}

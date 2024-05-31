@@ -2,6 +2,7 @@ body{
     margin: 0;
     padding: 0;
     background-color: #FAEED1;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .imagem-violao {
     
@@ -35,7 +36,7 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 20px;
+    font-size: 23px;
     gap: 15px;
     color: #FFF8E7;
     cursor: pointer;

@@ -41,6 +41,7 @@ body {
     display: flex;
     background-color: #B2A59B;
     margin-left: 10vh;
+    border-radius: 25px;
 }
 
 .conteudo {
@@ -106,6 +107,7 @@ body {
     background-color: #B2A59B;
     align-items: center;
     height: 8vh;
+    border-radius: 25px;
     
 }
 
@@ -117,6 +119,7 @@ body {
     color: rgb(0, 0, 0);
     font-size: 22px;
     font-weight: bold;
+    border-radius: 25px;
 }
 
 .botoes{

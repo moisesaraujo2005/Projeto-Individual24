@@ -11,6 +11,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
+  <style>
+    .input-erro{
+      color: red;
+    }
+  </style>
     <div class="main-login">
         <div class="login-esquerda">
             <h1>Faça Cadastro <br> E venha tocar com a gente!</h1>
@@ -21,21 +26,21 @@
             <div class="card-login">
                 <h1>CADASTRO</h1>
                 <div class="texto-card">
-                    <label for="usuario">Usuário</label>
+                    <label id="Validação" for="usuario">Usuário</label>
                     <input type="text" id="cadastro_usuario" placeholder="Usuário">
                     
                 </div>
                 <div class="texto-card">
-                    <label for="email">Email</label>
+                    <label id="Validação" for="email">Email</label>
                     <input type="text" id="email_usuario" placeholder="Email">
                     
                 </div>
                 <div class="texto-card">
-                    <label for="senha">Senha</label>
+                    <label id="Validação" for="senha">Senha</label>
                     <input type="password" id="senha_usuario" placeholder="Senha">
                 </div>
                 <div class="texto-card">
-                    <label for="confirmarSenha">Confirmar Senha</label>
+                    <label id="Validação" for="confirmarSenha">Confirmar Senha</label>
                     <input type="password" id="confirmarSenha_usuario" placeholder="Confirmar Senha">
                 </div>
                 <div class="select">
@@ -47,6 +52,7 @@
                 
                 </select></div>
                 
+                <div id="div_msgErro"></div>
                 <button class="botao-login" onclick="cadastrar()">Cadastro</button>
                 <span class="styleSpan" >
                     <a href="login.html">Já tem uma conta? clique aqui</a>
@@ -54,12 +60,13 @@
             </div>
         </div>
     </div>
+
 </body>
 </html>
 <script>
    function cadastrar() {
     
-
+    div_msgErro.innerHTML = ``
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
     var usuarioVar = cadastro_usuario.value;
@@ -67,22 +74,68 @@
     var senhaVar = senha_usuario.value;
     var confirmacaoSenhaVar = confirmarSenha_usuario.value;
     var selectMusico = select_musico.value
+    var tamanhoEmail = emailVar.length
     if (
-      usuarioVar == "" ||
-      emailVar == "" ||
-      senhaVar == "" ||
-      confirmacaoSenhaVar == "" ||
-      selectMusico == "" 
+      usuarioVar == "" 
     ) {
       
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
+    
 
+      document.getElementById("cadastro_usuario").style.border = "2px solid red";
+    
+      
+      
+      div_msgErro.innerHTML += `Campo usúario, está vazio!`
       
       return false;
-    } else {
-      
     }
+    
+    
+    else if(emailVar == '') {
+      document.getElementById("email_usuario").style.border = "2px solid red";
+      div_msgErro.innerHTML += `Campo email, está vazio!`
+      return false;
+    }
+
+       
+    else if(senhaVar == '') {
+      document.getElementById("senha_usuario").style.border = "2px solid red";
+      div_msgErro.innerHTML += `Campo senha, está vazio!`
+      return false;
+    }
+
+    else if(confirmacaoSenhaVar == '') {
+      document.getElementById("confirmarSenha_usuario").style.border = "2px solid red";
+      div_msgErro.innerHTML += `Campo confirmar senha, está vazio!`
+      return false;
+    }
+
+
+    else if(emailVar.indexOf('@') < 0) {
+      document.getElementById("email_usuario").style.border = "2px solid red";
+      div_msgErro.innerHTML += `Campo email, precisa ter @ !`
+      return false;
+    } 
+  
+    
+    
+    else if(senhaVar.length < 8) {
+      document.getElementById("senha_usuario").style.border = "2px solid red";
+      div_msgErro.innerHTML += `Campo senha, precisa ter no mínimo 8 caracteres !`
+      return false;
+    } 
+
+    else if(senhaVar != confirmacaoSenhaVar) {
+      document.getElementById("senha_usuario").style.border = "2px solid red";
+      document.getElementById("confirmarSenha_usuario").style.border = "2px solid red";
+      div_msgErro.innerHTML += `As senhas precisam ser iguais!`
+      return false;
+    } 
+    
+    
+    else {
+      
+    
 
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
@@ -127,5 +180,5 @@
 
 
 
-  
+}
 </script>
