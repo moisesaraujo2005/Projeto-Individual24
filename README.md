@@ -1,4 +1,4 @@
-<h1> PROJETO INDIVIDUAL 2024 - SPTech School by Moisés Silva</h1> 
+<h1> PROJETO-INDIVIDUAL 2024 - SPTech School by Moisés Silva</h1> 
 
  <h2> Este projeto consiste em usar as 4 tecnologias de desenvolvimento web, JavaScript, CSS, HTML e NODE JS. Para ver seu nível de aprendizado no 1 Semestre da SPTech </h2> <br>
 
