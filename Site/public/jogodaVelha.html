@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Velha</title>
+    <link rel="stylesheet" href="jogodaVelha.css">
+    <link rel="icon" href="assets/Amigo-Violao.png">
+</head>
+
+<body>
+    
+       <div class="header">
+        <div class="container1">
+            
+
+     <a href="home.html">  <img class="imagem-violao" src="assets/png-transparent-takamine-guitars-acoustic-electric-guitar-cutaway-dreadnought-acoustic-guitar-takamine-guitars-guitar-accessory-string-instrument-cutaway-removebg-preview.png"> </a>
+                 
+      
+           <ul class="navbar">
+        
+            <a href="votação.html"><li>Votação</li></a>
+            <li>|</li>
+            
+            
+            <a href="dash.html"><li>Dash</li></a>
+            
+            <li>|</li>
+
+            <a href="saude.html"><li>Sáude</li></a>
+            
+            <li>|</li>
+            <a class="imgLogo" href="login.html"><img src="assets/logoutbranco.png" alt=""></a>
+            
+           </ul>
+            
+        
+    </div>
+</div>
+
+<div class="containerdivisãoheader">
+</div>
+
+    <div class="container">
+        <h1>Jogo da velha!</h1>
+        <div class="conteudo">
+            <div class="linha1">
+                <div class="quadrados">
+                    <div onclick="quadrado('a1')"" class=" quadrado" id="a1">
+                        <div id="teste"></div>
+                    </div>
+                    <div onclick="quadrado('a2')" class="quadrado" id="a2">
+                        <div id="teste"></div>
+                    </div>
+                    <div onclick="quadrado('a3')" class="quadrado" id="a3">
+                        <div id="teste"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="linha2">
+                <div class="quadrados">
+                    <div class="quadrado" onclick="quadrado('b1')" id="b1">
+
+                    </div>
+                    <div onclick="quadrado('b2')" class="quadrado" id="b2">
+
+                    </div>
+                    <div class="quadrado" onclick="quadrado('b3')" id="b3">
+
+                    </div>
+                </div>
+            </div>
+            <div class="linha3">
+                <div class="quadrados">
+                    <div class="quadrado" onclick="quadrado('c1')" id="c1">
+
+                    </div>
+                    <div class="quadrado" onclick="quadrado('c2')" id="c2">
+
+                    </div>
+                    <div class="quadrado" onclick="quadrado('c3')" id="c3">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="botoes">
+
+
+            <h1>Placar</h1>
+            <div class="conteudoBotao">
+                <p>Violão</p>
+                <p class="placar" id="violaoPlacar"></p>
+                <div class="adicionar" onclick="Adicionar('Violão')">+</div>
+                <div class="remover" onclick="Remover('Violão')">-</div>
+                <p>Guitarra</p>
+                <p class="placar" id="guitarraPlacar"></p>
+                <p class="adicionar" onclick="Adicionar('Guitarra')">+</p>
+                <p class="remover" onclick="Remover('Guitarra')">-</p>
+            </div>
+        </div>
+        <button class="reiniciar" onclick="Reiniciar()">Reiniciar</button>
+    </div>
+
+  
+
+
+</body>
+
+</html>
+
+<script>
+
+    var tabuleiroPrincipal = [];
+    var linha1 = ['a1', 'a2', 'a3']
+    var linha2 = ['b1', 'b2', 'b3']
+    var linha3 = ['c1', 'c2', 'c3']
+
+    tabuleiroPrincipal = [linha1, linha2, linha3]
+
+
+    var violao = `<img src="https://cdn-icons-png.flaticon.com/512/1887/1887840.png" style="width: 119px; height: 130px;"  > `
+    var guitarra = `<img src="https://cdn-icons-png.flaticon.com/512/355/355081.png" style="width: 119px; height: 130px;"  > `
+
+    var primeiroInstrumento = violao
+    function quadrado(botaoEscolhido) {
+
+        var botao = document.getElementById(botaoEscolhido)
+
+        for (var linha = 0; linha < tabuleiroPrincipal.length; linha++) {
+
+            for (var quadrado = 0; quadrado < tabuleiroPrincipal[linha].length; quadrado++) {
+
+                if (tabuleiroPrincipal[linha][quadrado] == botaoEscolhido) {
+
+                    tabuleiroPrincipal[linha][quadrado] = primeiroInstrumento
+
+                    botao.innerHTML = primeiroInstrumento;
+
+
+
+
+                }
+
+
+            }
+
+
+        }
+
+        if (primeiroInstrumento == violao) {
+            primeiroInstrumento = guitarra
+        }
+
+        else {
+            primeiroInstrumento = violao
+        }
+
+
+    }
+    var placarViolao = 0
+    var placarGuitarra = 0
+    function Adicionar(comparar) {
+
+        if (comparar == 'Violão') {
+            violaoPlacar.innerHTML = placarViolao += 1
+        }
+        else {
+            guitarraPlacar.innerHTML = placarGuitarra += 1
+        }
+    }
+
+    function Remover(comparar) {
+
+              if (comparar == 'Violão') {
+                violaoPlacar.innerHTML = placarViolao -= 1
+            }
+
+         
+            else {
+                
+                guitarraPlacar.innerHTML = placarGuitarra -= 1
+            }
+
+            if(placarGuitarra <0 || placarViolao <0) {
+                guitarraPlacar.innerHTML=``
+                violaoPlacar.innerHTML=``
+                alert(`Valor inválido`)
+                placarGuitarra=0 
+                placarViolao=0
+            }
+        }
+    
+
+    function Reiniciar() {
+        window.location = 'jogodaVelha.html'
+    }
+</script>

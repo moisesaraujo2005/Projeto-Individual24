@@ -1,16 +1,15 @@
 
 
-
+@font-face {
+    font-family: 'Aeonik Regular';
+    src: url(fonts/AeonikTRIAL-Bold.otf);
+}
 body{
     margin: 0;
-   
+    font-family: 'Aeonik Regular';
 }
 
-.roboto-bold {
-    font-family: "Roboto", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-  }
+
 
 .main-login {
     width: 100vw;

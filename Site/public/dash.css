@@ -1,14 +1,15 @@
+@font-face {
+    font-family: 'Aeonik Regular';
+    src: url(fonts/AeonikTRIAL-Bold.otf);
+}
+
 body {
     background-color: #607274;
     margin: 0;
     padding: 0;
+    font-family: 'Aeonik Regular';
     
 }
-.roboto-bold {
-    font-family: "Roboto", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-  }
 
 
   
@@ -66,6 +67,7 @@ body {
     flex-direction: column;
     background-color: #b5c9cb;
     border-radius: 25px;
+    box-shadow: 0px 2px 40px -12px;
 }
 
 .setaPraCima {
@@ -200,6 +202,7 @@ border-radius: 25px;
     background-color: #606060;
     align-items: center;
     height: 8vh;
+    box-shadow: 0px 2px 40px -12px;
     
 }
 
@@ -210,6 +213,7 @@ border-radius: 25px;
     background-color: #DED0B6;
     color: rgb(0, 0, 0);
     font-size: 22px;
+    
     font-weight: bold;
 }
 .dash h1{
@@ -279,7 +283,8 @@ border-radius: 25px;
     justify-content: center;
     border-radius: 25px;
     background-color: #606060;
-    color: white
+    color: white;
+    
 }
     .KPI{
         display: flex;

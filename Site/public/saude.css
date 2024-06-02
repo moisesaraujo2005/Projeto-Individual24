@@ -1,8 +1,13 @@
+@font-face {
+    font-family: 'Aeonik Regular';
+    src: url(fonts/AeonikTRIAL-Regular.otf);
+}
+
 body{
     margin: 0;
     padding: 0;
     background-color: #FAEED1;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Aeonik Regular';
 }
 .imagem-violao {
     
