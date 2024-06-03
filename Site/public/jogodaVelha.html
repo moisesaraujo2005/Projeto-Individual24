@@ -141,7 +141,7 @@
                     botao.innerHTML = primeiroInstrumento;
 
 
-
+        
 
                 }
 
@@ -196,6 +196,20 @@
     
 
     function Reiniciar() {
-        window.location = 'jogodaVelha.html'
+
+      var quadrados =  document.querySelectorAll('.quadrado')
+        console.log(quadrados.length)
+   
+        for(var i =0; i<quadrados.length; i++) {
+            
+            quadrados[i].innerHTML= ``
+        }
+
+        tabuleiroPrincipal = [
+            ['a1', 'a2', 'a3'],
+            ['b1', 'b2', 'b3'],
+            ['c1', 'c2', 'c3']
+        ];
+        primeiroInstrumento=violao
     }
 </script>
